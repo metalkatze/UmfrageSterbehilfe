@@ -11,7 +11,13 @@
     <!-- Frage 1 -->
     <h2>Frage 1: Wie alt bist du?</h2>
     <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="number" name="age" required><br><br>
+        <input type="radio" name="age_group" value="Unter 18" required> Unter 18<br>
+        <input type="radio" name="age_group" value="18-29"> 18-29<br>
+        <input type="radio" name="age_group" value="30-39"> 30-39<br>
+        <input type="radio" name="age_group" value="40-49"> 40-49<br>
+        <input type="radio" name="age_group" value="50-59"> 50-59<br>
+        <input type="radio" name="age_group" value="Über 60"> Über 60<br>
+        <br>
     </form>
 
     <!-- Frage 2 -->
@@ -26,7 +32,13 @@
     <!-- Frage 3 -->
     <h2>Frage 3: Welcher Religion gehörst du an?</h2>
     <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="text" name="religion" required><br><br>
+        <input type="radio" name="religion" value="Christentum" required> Christentum<br>
+        <input type="radio" name="religion" value="Islam"> Islam<br>
+        <input type="radio" name="religion" value="Judentum"> Judentum<br>
+        <input type="radio" name="religion" value="Buddhismus"> Buddhismus<br>
+        <input type="radio" name="religion" value="Hinduismus"> Hinduismus<br>
+        <input type="radio" name="religion" value="Keine Religion"> Keine Religion<br>
+        <br>
     </form>
 
     <!-- Frage 4 -->
@@ -42,6 +54,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="support_euthanasia" value="Ja" required> Ja<br>
         <input type="radio" name="support_euthanasia" value="Nein"> Nein<br>
+        <input type="radio" name="support_euthanasia" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -56,7 +69,11 @@
     <!-- Frage 6 -->
     <h2>Frage 6: Wer darf Sterbehilfe beanspruchen?</h2>
     <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="text" name="who_can_request" required><br><br>
+        <input type="checkbox" name="who_can_request[]" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben"> Alle Personen, die schwer leidende, unheilbare Krankheiten haben<br>
+        <input type="checkbox" name="who_can_request[]" value="Nur Erwachsene in bestimmten Situationen"> Nur Erwachsene in bestimmten Situationen<br>
+        <input type="checkbox" name="who_can_request[]" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können"> Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können<br>
+        <input type="checkbox" name="who_can_request[]" value="Niemand"> Niemand<br>
+        <br>
     </form>
 
     <!-- Frage 7 -->
@@ -64,6 +81,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="90_year_old_grandma" value="Ja" required> Ja<br>
         <input type="radio" name="90_year_old_grandma" value="Nein"> Nein<br>
+        <input type="radio" name="90_year_old_grandma" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -72,6 +90,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="9_year_old_child" value="Ja" required> Ja<br>
         <input type="radio" name="9_year_old_child" value="Nein"> Nein<br>
+        <input type="radio" name="9_year_old_child" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -80,6 +99,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="40_year_old_father" value="Ja" required> Ja<br>
         <input type="radio" name="40_year_old_father" value="Nein"> Nein<br>
+        <input type="radio" name="40_year_old_father" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -88,6 +108,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="29_year_old_woman" value="Ja" required> Ja<br>
         <input type="radio" name="29_year_old_woman" value="Nein"> Nein<br>
+        <input type="radio" name="29_year_old_woman" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -96,6 +117,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="35_year_old_soldier" value="Ja" required> Ja<br>
         <input type="radio" name="35_year_old_soldier" value="Nein"> Nein<br>
+        <input type="radio" name="35_year_old_soldier" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -104,6 +126,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="7_year_old_child" value="Ja" required> Ja<br>
         <input type="radio" name="7_year_old_child" value="Nein"> Nein<br>
+        <input type="radio" name="7_year_old_child" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -112,6 +135,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="52_year_old_woman" value="Ja" required> Ja<br>
         <input type="radio" name="52_year_old_woman" value="Nein"> Nein<br>
+        <input type="radio" name="52_year_old_woman" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -120,34 +144,44 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="14_year_old_down_syndrome" value="Ja" required> Ja<br>
         <input type="radio" name="14_year_old_down_syndrome" value="Nein"> Nein<br>
+        <input type="radio" name="14_year_old_down_syndrome" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
     <!-- Frage 15 -->
     <h2>Frage 15: Darf ein 27-Jähriger Mann, der querschnittsgelähmt im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?</h2>
     <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="27_year_old_man" value="Ja" required> Ja<br>
-        <input type="radio" name="27_year_old_man" value="Nein"> Nein<br>
+        <input type="radio" name="27_year_old_paraplegic_man" value="Ja" required> Ja<br>
+        <input type="radio" name="27_year_old_paraplegic_man" value="Nein"> Nein<br>
+        <input type="radio" name="27_year_old_paraplegic_man" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
     <!-- Frage 16 -->
     <h2>Frage 16: Wer darf darüber entscheiden?</h2>
     <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="text" name="who_decides" required><br><br>
+        <input type="checkbox" name="who_can_decide[]" value="Der Patient selbst"> Der Patient selbst<br>
+        <input type="checkbox" name="who_can_decide[]" value="Familie oder gesetzliche Vertreter"> Familie oder gesetzliche Vertreter<br>
+        <input type="checkbox" name="who_can_decide[]" value="Ärzte und Ethikkommissionen"> Ärzte und Ethikkommissionen<br>
+        <br>
     </form>
 
     <!-- Frage 17 -->
     <h2>Frage 17: Wer soll es durchführen?</h2>
     <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="text" name="who_performs" required><br><br>
+        <input type="checkbox" name="who_should_conduct[]" value="Ärzte"> Ärzte<br>
+        <input type="checkbox" name="who_should_conduct[]" value="Pfleger"> Pfleger<br>
+        <input type="checkbox" name="who_should_conduct[]" value="Familie oder gesetzliche Vertreter"> Familie oder gesetzliche Vertreter<br>
+        <input type="checkbox" name="who_should_conduct[]" value="Der Patient selbst"> Der Patient selbst<br>
+        <br>
     </form>
 
     <!-- Frage 18 -->
     <h2>Frage 18: Findest du Sterbehilfe moralisch vertretbar?</h2>
     <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="moral_euthanasia" value="Ja" required> Ja<br>
-        <input type="radio" name="moral_euthanasia" value="Nein"> Nein<br>
+        <input type="radio" name="moral_acceptance" value="Ja" required> Ja<br>
+        <input type="radio" name="moral_acceptance" value="Nein"> Nein<br>
+        <input type="radio" name="moral_acceptance" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
@@ -164,6 +198,7 @@
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="for_euthanasia" value="Ja" required> Ja<br>
         <input type="radio" name="for_euthanasia" value="Nein"> Nein<br>
+        <input type="radio" name="for_euthanasia" value="Unsicher"> Unsicher<br>
         <br>
     </form>
 
