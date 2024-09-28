@@ -16,13 +16,26 @@
             text-align: center;
         }
         .question {
-            background-color: #87CEFA; /* Hellblau */
+            background-color: #FFFFFF; /* Weiß für die Fragen */
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
         }
-        input[type="radio"], input[type="checkbox"] {
+        input[type="radio"], input[type="checkbox"], input[type="text"] {
             margin-right: 10px;
+            margin-left: 20px;
+        }
+        button {
+            background-color: #87CEFA; /* Hellblau */
+            color: #000000; /* Schwarz für den Button */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #A1D6FB; /* Etwas dunkleres Hellblau bei Hover */
         }
         .tooltip {
             position: relative;
@@ -54,7 +67,6 @@
 <body>
 
     <h1>Umfrage zur Sterbehilfe</h1>
-    <img src="banner.jpg" alt="Banner" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
 
     <form id="surveyForm">
         <div class="question">
@@ -85,7 +97,7 @@
         </div>
 
         <div class="question">
-            4. Weißt du, was Sterbehilfe ist?<br>
+            4. Weißt du, was <span class="tooltip">Sterbehilfe<span class="tooltiptext">Die Unterstützung eines leidenden Menschen bei der Beendigung seines Lebens.</span></span> ist?<br>
             <input type="radio" name="euthanasia_knowledge" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_knowledge" value="Nein" onclick="lockQuestion(this)"> Nein<br>
         </div>
@@ -127,17 +139,17 @@
         </div>
 
         <div class="question">
-            9. Darf ein 40-Jähriger Familienvater mit einem <span class="tooltip">Schlaganfall<span class="tooltiptext">Eine Unterbrechung der Blutzufuhr zum Gehirn, oft mit einseitiger Lähmung.</span></span> (mit einseitiger Lähmung) Sterbehilfe beanspruchen?<br>
+            9. Darf ein 40-Jähriger Familienvater mit einem <span class="tooltip">Schlaganfall<span class="tooltiptext">Eine Unterbrechung der Blutzufuhr zum Gehirn, oft mit einseitiger Lähmung.</span></span> (mit <span class="tooltip">einseitiger Lähmung<span class="tooltiptext">Eine Lähmung, die nur eine Körperseite betrifft.</span></span> ) Sterbehilfe beanspruchen?<br>
             <input type="radio" name="euthanasia_father" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_father" value="Nein" onclick="lockQuestion(this)"> Nein<br>
             <input type="radio" name="euthanasia_father" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
         <div class="question">
-            10. Darf eine 29-Jährige Frau mit <span class="tooltip">Schizophrenie<span class="tooltiptext">Eine psychische Erkrankung, die durch Wahnvorstellungen und Halluzinationen gekennzeichnet ist.</span></span> Sterbehilfe in Anspruch nehmen?<br>
-            <input type="radio" name="euthanasia_woman29" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_woman29" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-            <input type="radio" name="euthanasia_woman29" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+            10. Darf ein 75-Jähriger Mann mit <span class="tooltip">schweren Depressionen<span class="tooltiptext">Eine ernsthafte psychische Erkrankung mit anhaltender Traurigkeit und Antriebslosigkeit.</span></span> Sterbehilfe erhalten?<br>
+            <input type="radio" name="euthanasia_man75" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_man75" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+            <input type="radio" name="euthanasia_man75" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
         <div class="question">
@@ -192,7 +204,7 @@
         </div>
 
         <div class="question">
-            18. Findest du Sterbehilfe moralisch vertretbar?<br>
+            18. Findest du <span class="tooltip">Sterbehilfe<span class="tooltiptext">Die Unterstützung eines leidenden Menschen bei der Beendigung seines Lebens.</span></span> moralisch vertretbar?<br>
             <input type="radio" name="euthanasia_moral" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_moral" value="Nein" onclick="lockQuestion(this)"> Nein<br>
             <input type="radio" name="euthanasia_moral" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
