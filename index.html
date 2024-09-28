@@ -5,64 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Umfrage zur Sterbehilfe</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #001f3f; /* Marineblau */
-            font-family: 'Helvetica', sans-serif;
-            color: white;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: black;
-            text-align: center;
-            border-radius: 5px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 100%; /* Place the tooltip above the text */
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-        input[type="text"] {
-            background-color: #00bfff; /* Hellblau für Eingabefelder */
-            color: black;
-            border: none;
-            border-radius: 5px;
-            padding: 5px;
-            margin: 5px 0;
-        }
-        input[type="radio"],
-        input[type="checkbox"] {
-            margin: 10px 0;
-        }
-        button {
-            background-color: #00bfff; /* Hellblau für den Button */
-            color: black;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            display: block;
-            margin: 20px auto;
-        }
-    </style>
 </head>
 <body>
 
@@ -167,23 +109,61 @@
         </div>
 
         <div>
-            13. Wer sollte entscheiden, ob Sterbehilfe gewährt wird?<br>
+            13. Darf eine 52-Jährige Frau mit <span class="tooltip">ME/CFS<span class="tooltiptext">Eine chronische Erkrankung, die extreme Müdigkeit und andere Symptome verursacht.</span></span> Sterbehilfe erhalten?<br>
+            <input type="radio" name="euthanasia_woman52" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_woman52" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+            <input type="radio" name="euthanasia_woman52" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+        </div>
+
+        <div>
+            14. Darf eine 14-Jährige mit <span class="tooltip">Down-Syndrom<span class="tooltiptext">Eine genetische Störung, die geistige Behinderung und körperliche Merkmale verursacht.</span></span> Sterbehilfe beanspruchen?<br>
+            <input type="radio" name="euthanasia_girl14" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_girl14" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+            <input type="radio" name="euthanasia_girl14" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+        </div>
+
+        <div>
+            15. Darf ein 27-Jähriger Mann, der querschnittsgelähmt im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?<br>
+            <input type="radio" name="euthanasia_man27" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_man27" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+            <input type="radio" name="euthanasia_man27" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+        </div>
+
+        <div>
+            16. Wer darf darüber entscheiden?<br>
             <input type="checkbox" name="euthanasia_decision" value="Ärzte" onclick="lockQuestion(this)"> Ärzte<br>
             <input type="checkbox" name="euthanasia_decision" value="Pflegekräfte" onclick="lockQuestion(this)"> Pflegekräfte<br>
             <input type="checkbox" name="euthanasia_decision" value="Ethikkommissionen" onclick="lockQuestion(this)"> Ethikkommissionen<br>
             <input type="checkbox" name="euthanasia_decision" value="Der Patient selbst" onclick="lockQuestion(this)"> Der Patient selbst<br>
+            <input type="checkbox" name="euthanasia_decision" value="Familie oder gesetzliche Vertreter" onclick="lockQuestion(this)"> Familie oder gesetzliche Vertreter <span class="tooltip">gesetzliche Vertreter<span class="tooltiptext">Personen, die rechtlich bevollmächtigt sind, Entscheidungen für einen anderen zu treffen.</span></span><br>
         </div>
 
         <div>
-            14. Gibt es einen Unterschied zwischen aktiver und passiver Sterbehilfe?<br>
-            <input type="radio" name="euthanasia_difference" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_difference" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-            <input type="radio" name="euthanasia_difference" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+            17. Wer soll es durchführen?<br>
+            <input type="checkbox" name="euthanasia_performer" value="Ärzte" onclick="lockQuestion(this)"> Ärzte<br>
+            <input type="checkbox" name="euthanasia_performer" value="Pflegekräfte" onclick="lockQuestion(this)"> Pflegekräfte<br>
+            <input type="checkbox" name="euthanasia_performer" value="Der Patient selbst" onclick="lockQuestion(this)"> Der Patient selbst<br>
+            <input type="checkbox" name="euthanasia_performer" value="Familie oder gesetzliche Vertreter" onclick="lockQuestion(this)"> Familie oder gesetzliche Vertreter<br>
         </div>
 
         <div>
-            15. Wie stehst du zum Thema Sterbehilfe?<br>
-            <textarea name="opinion" rows="4" cols="50" placeholder="Deine Meinung hier..."></textarea>
+            18. Findest du Sterbehilfe moralisch vertretbar?<br>
+            <input type="radio" name="euthanasia_moral" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_moral" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+            <input type="radio" name="euthanasia_moral" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+        </div>
+
+        <div>
+            19. Wusstest du, dass andere Länder Sterbehilfe anbieten?<br>
+            <input type="radio" name="euthanasia_countries" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_countries" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+        </div>
+
+        <div>
+            20. Bist du für Sterbehilfe?<br>
+            <input type="radio" name="euthanasia_support_general" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_support_general" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+            <input type="radio" name="euthanasia_support_general" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
         <button type="button" onclick="submitSurvey()">Abschicken</button>
