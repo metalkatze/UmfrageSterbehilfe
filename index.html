@@ -4,6 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Umfrage zur Sterbehilfe</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif; /* Schriftart auf Helvetica geändert */
+            background-color: indigo;
+            color: #D2B48C; /* Hellbraunes Holz */
+            margin: 0;
+            padding: 20px;
+            font-size: 12pt; /* Standard Schriftgröße */
+        }
+
+        h1 {
+            text-align: center;
+            color: #D2B48C; /* Hellbraunes Holz */
+        }
+
+        h2 {
+            color: #D2B48C; /* Hellbraunes Holz */
+            font-size: 14pt; /* Fragen Schriftgröße */
+            font-weight: bold; /* Fett */
+        }
+
+        form {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Umfrage zur Sterbehilfe</h1>
@@ -113,7 +163,7 @@
     </form>
 
     <!-- Frage 11 -->
-    <h2>Frage 11: Darf ein 35-Jähriger Soldat mit PTBS Sterbehilfe erhalten?</h2>
+    <h2>Frage 11: Darf ein 35-Jähriger Soldat mit PTSD Sterbehilfe beanspruchen?</h2>
     <form action="https://formspree.io/f/mvgpervb" method="POST">
         <input type="radio" name="35_year_old_soldier" value="Ja" required> Ja<br>
         <input type="radio" name="35_year_old_soldier" value="Nein"> Nein<br>
