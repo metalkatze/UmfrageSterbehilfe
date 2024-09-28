@@ -7,42 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
     <style>
         body {
+            background-color: #001f3f; /* Marineblau */
             font-family: 'Helvetica', sans-serif;
-            background-color: #003366; /* Marineblau */
-            color: #FFFFFF; /* Weiß */
+            color: white;
             padding: 20px;
         }
         h1 {
             text-align: center;
-        }
-        .question {
-            background-color: #FFFFFF; /* Weiß für die Fragen */
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-        input[type="radio"], input[type="checkbox"] {
-            margin-right: 10px;
-            margin-left: 20px;
-        }
-        input[type="text"], input[type="radio"], input[type="checkbox"] {
-            background-color: #87CEFA; /* Hellblau für die Antwortfelder */
-            color: #000000; /* Schwarz für die Schrift in den Feldern */
-            border: none;
-            border-radius: 5px;
-            padding: 5px;
-        }
-        button {
-            background-color: #87CEFA; /* Hellblau */
-            color: #000000; /* Schwarz für den Button */
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #A1D6FB; /* Etwas dunkleres Hellblau bei Hover */
         }
         .tooltip {
             position: relative;
@@ -51,23 +22,45 @@
         }
         .tooltip .tooltiptext {
             visibility: hidden;
-            width: 150px;
-            background-color: black;
-            color: #fff;
+            width: 120px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
             text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
+            border-radius: 5px;
+            padding: 5px;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position über dem Tooltip */
+            bottom: 100%; /* Place the tooltip above the text */
             left: 50%;
-            margin-left: -75px;
+            margin-left: -60px;
             opacity: 0;
             transition: opacity 0.3s;
         }
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
+        }
+        input[type="text"] {
+            background-color: #00bfff; /* Hellblau für Eingabefelder */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 10px 0;
+        }
+        button {
+            background-color: #00bfff; /* Hellblau für den Button */
+            color: black;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -76,7 +69,7 @@
     <h1>Umfrage zur Sterbehilfe</h1>
 
     <form id="surveyForm">
-        <div class="question">
+        <div>
             1. Wie alt bist du?<br>
             <input type="radio" name="age" value="Unter 18" onclick="lockQuestion(this)"> Unter 18<br>
             <input type="radio" name="age" value="18-29" onclick="lockQuestion(this)"> 18-29<br>
@@ -86,14 +79,14 @@
             <input type="radio" name="age" value="60 oder älter" onclick="lockQuestion(this)"> 60 oder älter<br>
         </div>
 
-        <div class="question">
+        <div>
             2. Welches Geschlecht hast du?<br>
             <input type="radio" name="gender" value="Weiblich" onclick="lockQuestion(this)"> Weiblich<br>
             <input type="radio" name="gender" value="Männlich" onclick="lockQuestion(this)"> Männlich<br>
             <input type="radio" name="gender" value="Divers" onclick="lockQuestion(this)"> Divers<br>
         </div>
 
-        <div class="question">
+        <div>
             3. Welcher Religion gehörst du an?<br>
             <input type="radio" name="religion" value="Christentum" onclick="lockQuestion(this)"> Christentum<br>
             <input type="radio" name="religion" value="Islam" onclick="lockQuestion(this)"> Islam<br>
@@ -103,27 +96,27 @@
             <input type="radio" name="religion" value="Keine Religion" onclick="lockQuestion(this)"> Keine Religion<br>
         </div>
 
-        <div class="question">
+        <div>
             4. Weißt du, was <span class="tooltip">Sterbehilfe<span class="tooltiptext">Die Unterstützung eines leidenden Menschen bei der Beendigung seines Lebens.</span></span> ist?<br>
             <input type="radio" name="euthanasia_knowledge" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_knowledge" value="Nein" onclick="lockQuestion(this)"> Nein<br>
         </div>
 
-        <div class="question">
+        <div>
             4a. Wenn ja, bist du dafür?<br>
             <input type="radio" name="euthanasia_support" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_support" value="Nein" onclick="lockQuestion(this)"> Nein<br>
             <input type="radio" name="euthanasia_support" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
-        <div class="question">
+        <div>
             5. Hast du schon Erfahrungen mit Sterbehilfe?<br>
             <input type="radio" name="euthanasia_experience" value="Ja, persönlich" onclick="lockQuestion(this)"> Ja, persönlich<br>
             <input type="radio" name="euthanasia_experience" value="Ja, im Bekanntenkreis" onclick="lockQuestion(this)"> Ja, im Bekanntenkreis<br>
             <input type="radio" name="euthanasia_experience" value="Nein" onclick="lockQuestion(this)"> Nein<br>
         </div>
 
-        <div class="question">
+        <div>
             6. Wer darf Sterbehilfe beanspruchen?<br>
             <input type="checkbox" name="euthanasia_rights" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben" onclick="lockQuestion(this)"> Alle Personen, die schwer leidende, unheilbare Krankheiten haben<br>
             <input type="checkbox" name="euthanasia_rights" value="Nur Erwachsene in bestimmten Situationen" onclick="lockQuestion(this)"> Nur Erwachsene in bestimmten Situationen<br>
@@ -131,132 +124,92 @@
             <input type="checkbox" name="euthanasia_rights" value="Niemand" onclick="lockQuestion(this)"> Niemand<br>
         </div>
 
-        <div class="question">
+        <div>
             7. Darf eine 90-Jährige Oma mit vielen Krankheiten (z. B. <span class="tooltip">Demenz<span class="tooltiptext">Eine Erkrankung, die das Gedächtnis und andere kognitive Fähigkeiten beeinträchtigt.</span></span>, <span class="tooltip">Alzheimer<span class="tooltiptext">Eine spezifische Form der Demenz, die das Gedächtnis stark beeinträchtigt.</span></span>, Krebs im Endstadium) Sterbehilfe erhalten?<br>
             <input type="radio" name="euthanasia_grandma" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_grandma" value="Nein" onclick="lockQuestion(this)"> Nein<br>
             <input type="radio" name="euthanasia_grandma" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
-        <div class="question">
+        <div>
             8. Darf ein 9-Jähriges Kind mit Krebs Sterbehilfe in Anspruch nehmen?<br>
             <input type="radio" name="euthanasia_child9" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_child9" value="Nein" onclick="lockQuestion(this)"> Nein<br>
             <input type="radio" name="euthanasia_child9" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
-        <div class="question">
-            9. Darf ein 40-Jähriger Familienvater mit einem <span class="tooltip">Schlaganfall<span class="tooltiptext">Eine Unterbrechung der Blutzufuhr zum Gehirn, oft mit einseitiger Lähmung verbunden.</span></span> Sterbehilfe in Anspruch nehmen?<br>
+        <div>
+            9. Darf ein 40-Jähriger Familienvater mit einem <span class="tooltip">Schlaganfall<span class="tooltiptext">Eine Unterbrechung der Blutzufuhr zum Gehirn, oft mit einseitiger Lähmung verbunden.</span></span> (mit <span class="tooltip">einseitiger Lähmung<span class="tooltiptext">Ein Zustand, bei dem eine Körperseite nicht mehr richtig bewegt werden kann.</span></span>) Sterbehilfe in Anspruch nehmen?<br>
             <input type="radio" name="euthanasia_father" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_father" value="Nein" onclick="lockQuestion(this)"> Nein<br>
             <input type="radio" name="euthanasia_father" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
-        <div class="question">
-            10. Darf ein 75-Jähriger Mann mit <span class="tooltip">schweren Depressionen<span class="tooltiptext">Eine ernsthafte psychische Erkrankung mit anhaltender Traurigkeit und Antriebslosigkeit.</span></span> Sterbehilfe erhalten?<br>
-            <input type="radio" name="euthanasia_man75" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_man75" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-            <input type="radio" name="euthanasia_man75" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+        <div>
+            10. Darf eine 29-Jährige mit <span class="tooltip">Schizophrenie<span class="tooltiptext">Eine psychische Erkrankung, die durch gestörtes Denken, Emotionen und Verhalten gekennzeichnet ist.</span></span> Sterbehilfe erhalten?<br>
+            <input type="radio" name="euthanasia_woman29" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_woman29" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+            <input type="radio" name="euthanasia_woman29" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
-        <div class="question">
+        <div>
             11. Darf ein 35-Jähriger Soldat mit <span class="tooltip">PTBS<span class="tooltiptext">Posttraumatische Belastungsstörung, oft nach traumatischen Erlebnissen.</span></span> Sterbehilfe erhalten?<br>
             <input type="radio" name="euthanasia_soldier" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_soldier" value="Nein" onclick="lockQuestion(this)"> Nein<br>
             <input type="radio" name="euthanasia_soldier" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
-        <div class="question">
+        <div>
             12. Darf ein 7-Jähriges Kind mit <span class="tooltip">bipolarer Störung<span class="tooltiptext">Eine psychische Erkrankung mit extremen Stimmungsschwankungen.</span></span> Sterbehilfe beanspruchen?<br>
             <input type="radio" name="euthanasia_child7" value="Ja" onclick="lockQuestion(this)"> Ja<br>
             <input type="radio" name="euthanasia_child7" value="Nein" onclick="lockQuestion(this)"> Nein<br>
             <input type="radio" name="euthanasia_child7" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
-        <div class="question">
-            13. Darf eine 52-Jährige Frau mit <span class="tooltip">ME/CFS<span class="tooltiptext">Myalgische Enzephalomyelitis/Chronisches Müdigkeitssyndrom, eine Erkrankung mit extremer Müdigkeit.</span></span> Sterbehilfe erhalten?<br>
-            <input type="radio" name="euthanasia_woman52" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_woman52" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-            <input type="radio" name="euthanasia_woman52" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+        <div>
+            13. Wer sollte entscheiden, ob Sterbehilfe gewährt wird?<br>
+            <input type="checkbox" name="euthanasia_decision" value="Ärzte" onclick="lockQuestion(this)"> Ärzte<br>
+            <input type="checkbox" name="euthanasia_decision" value="Pflegekräfte" onclick="lockQuestion(this)"> Pflegekräfte<br>
+            <input type="checkbox" name="euthanasia_decision" value="Ethikkommissionen" onclick="lockQuestion(this)"> Ethikkommissionen<br>
+            <input type="checkbox" name="euthanasia_decision" value="Der Patient selbst" onclick="lockQuestion(this)"> Der Patient selbst<br>
         </div>
 
-        <div class="question">
-            14. Darf eine 14-Jährige mit <span class="tooltip">Down-Syndrom<span class="tooltiptext">Eine genetische Erkrankung, die geistige und körperliche Entwicklungsverzögerungen verursacht.</span></span> Sterbehilfe beanspruchen?<br>
-            <input type="radio" name="euthanasia_girl14" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_girl14" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-            <input type="radio" name="euthanasia_girl14" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+        <div>
+            14. Gibt es einen Unterschied zwischen aktiver und passiver Sterbehilfe?<br>
+            <input type="radio" name="euthanasia_difference" value="Ja" onclick="lockQuestion(this)"> Ja<br>
+            <input type="radio" name="euthanasia_difference" value="Nein" onclick="lockQuestion(this)"> Nein<br>
+            <input type="radio" name="euthanasia_difference" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
         </div>
 
-        <div class="question">
-            15. Darf ein 27-Jähriger Mann, der <span class="tooltip">querschnittsgelähmt<span class="tooltiptext">Ein Zustand, in dem die Bewegung unterhalb der Verletzungsstelle verloren geht.</span></span> im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?<br>
-            <input type="radio" name="euthanasia_man27" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_man27" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-            <input type="radio" name="euthanasia_man27" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
+        <div>
+            15. Wie stehst du zum Thema Sterbehilfe?<br>
+            <textarea name="opinion" rows="4" cols="50" placeholder="Deine Meinung hier..."></textarea>
         </div>
 
-        <div class="question">
-            16. Wer darf darüber entscheiden?<br>
-            <input type="checkbox" name="decision_rights" value="Ärzte" onclick="lockQuestion(this)"> Ärzte<br>
-            <input type="checkbox" name="decision_rights" value="Pfleger" onclick="lockQuestion(this)"> Pfleger<br>
-            <input type="checkbox" name="decision_rights" value="Ethikkommissionen" onclick="lockQuestion(this)"> Ethikkommissionen<br>
-            <input type="checkbox" name="decision_rights" value="Der Patient selbst" onclick="lockQuestion(this)"> Der Patient selbst<br>
-        </div>
-
-        <div class="question">
-            17. Wer soll es durchführen?<br>
-            <input type="checkbox" name="who_perform" value="Ärzte" onclick="lockQuestion(this)"> Ärzte<br>
-            <input type="checkbox" name="who_perform" value="Pfleger" onclick="lockQuestion(this)"> Pfleger<br>
-            <input type="checkbox" name="who_perform" value="Familie oder gesetzliche Vertreter" onclick="lockQuestion(this)"> Familie oder gesetzliche Vertreter<br>
-            <input type="checkbox" name="who_perform" value="Der Patient selbst" onclick="lockQuestion(this)"> Der Patient selbst<br>
-        </div>
-
-        <div class="question">
-            18. Findest du <span class="tooltip">Sterbehilfe<span class="tooltiptext">Die Unterstützung eines leidenden Menschen bei der Beendigung seines Lebens.</span></span> moralisch vertretbar?<br>
-            <input type="radio" name="euthanasia_moral" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_moral" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-            <input type="radio" name="euthanasia_moral" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
-        </div>
-
-        <div class="question">
-            19. Wusstest du, dass andere Länder Sterbehilfe anbieten?<br>
-            <input type="radio" name="euthanasia_countries" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_countries" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-        </div>
-
-        <div class="question">
-            20. Bist du für Sterbehilfe?<br>
-            <input type="radio" name="euthanasia_support_final" value="Ja" onclick="lockQuestion(this)"> Ja<br>
-            <input type="radio" name="euthanasia_support_final" value="Nein" onclick="lockQuestion(this)"> Nein<br>
-            <input type="radio" name="euthanasia_support_final" value="Unsicher" onclick="lockQuestion(this)"> Unsicher<br>
-        </div>
-
-        <button type="button" onclick="submitForm()">Absenden</button>
+        <button type="button" onclick="submitSurvey()">Abschicken</button>
     </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script>
-        (function(){
-            emailjs.init("YOUR_USER_ID"); // Füge deine Benutzer-ID hier ein
-        })();
+        function lockQuestion(element) {
+            const questionName = element.name;
+            const questionElements = document.getElementsByName(questionName);
 
-        function lockQuestion(selected) {
-            const question = selected.closest('.question');
-            const inputs = question.querySelectorAll('input[type="radio"], input[type="checkbox"], input[type="text"]');
-            inputs.forEach(input => {
-                input.disabled = true; // Alle Eingaben in der Frage sperren
-            });
+            // Lock the question once an answer is selected
+            for (const questionElement of questionElements) {
+                questionElement.disabled = true;
+            }
+
+            // Allow multiple selection for checkboxes
+            if (element.type === "checkbox") {
+                element.disabled = false; // keep current checkbox enabled
+            }
         }
 
-        function submitForm() {
-            const form = document.getElementById('surveyForm');
-            const formData = new FormData(form);
-            emailjs.sendForm('service_ler4x7s', 'template_srv4hjv', formData)
-                .then(() => {
-                    alert('Umfrage erfolgreich gesendet!');
-                }, (error) => {
-                    alert('Fehler beim Senden der Umfrage: ' + JSON.stringify(error));
-                });
+        function submitSurvey() {
+            alert("Umfrage erfolgreich abgeschickt!");
+            document.getElementById("surveyForm").reset(); // Reset the form after submission
         }
     </script>
+
 </body>
 </html>
