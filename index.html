@@ -3,85 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umfrage zur Sterbehilfe</title>
+    <title>Umfrage zum Thema Sterbehilfe</title>
     <style>
         body {
-            font-family: Helvetica, sans-serif; /* Schriftart auf Helvetica geändert */
-            background-color: indigo;
-            color: #D2B48C; /* Hellbraunes Holz */
-            margin: 0;
-            padding: 20px;
-            font-size: 12pt; /* Standard Schriftgröße */
+            background-color: #000080; /* Marineblau */
+            color: #000000; /* Schwarz */
+            font-family: 'Helvetica', sans-serif;
+            font-size: 12px;
         }
 
         h1 {
-            text-align: center;
-            color: #D2B48C; /* Hellbraunes Holz */
+            font-size: 14px;
+            font-weight: bold; /* Fett für Fragen */
         }
 
-        h2 {
-            color: #D2B48C; /* Hellbraunes Holz */
-            font-size: 14pt; /* Fragen Schriftgröße */
-            font-weight: bold; /* Fett */
+        input[type="radio"], input[type="checkbox"], input[type="submit"] {
+            margin: 10px 0;
+            color: #ADD8E6; /* Hellblau */
         }
 
-        form {
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        input[type="radio"],
-        input[type="checkbox"] {
-            margin-right: 10px;
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
+        input[type="submit"] {
+            background-color: #ADD8E6; /* Hellblau */
             border: none;
-            border-radius: 5px;
+            color: #000000; /* Schwarz für den Text */
+            padding: 10px 15px;
             cursor: pointer;
-            font-size: 16px;
+            font-weight: bold;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        input[type="submit"]:hover {
+            background-color: #87CEEB; /* Helleres Blau beim Hover */
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
         }
     </style>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
-    <h1>Umfrage zur Sterbehilfe</h1>
-
-    <!-- Frage 1 -->
-    <h2>Frage 1: Wie alt bist du?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="age_group" value="Unter 18" required> Unter 18<br>
-        <input type="radio" name="age_group" value="18-29"> 18-29<br>
-        <input type="radio" name="age_group" value="30-39"> 30-39<br>
-        <input type="radio" name="age_group" value="40-49"> 40-49<br>
-        <input type="radio" name="age_group" value="50-59"> 50-59<br>
-        <input type="radio" name="age_group" value="Über 60"> Über 60<br>
+    <h1>Frage 1: Wie alt bist du?</h1>
+    <form id="survey-form">
+        <input type="radio" name="age" value="Unter 18" required> Unter 18<br>
+        <input type="radio" name="age" value="18-29"> 18-29<br>
+        <input type="radio" name="age" value="30-39"> 30-39<br>
+        <input type="radio" name="age" value="40-49"> 40-49<br>
+        <input type="radio" name="age" value="50-59"> 50-59<br>
+        <input type="radio" name="age" value="60 oder älter"> Über 60<br>
         <br>
-    </form>
-
-    <!-- Frage 2 -->
-    <h2>Frage 2: Welches Geschlecht hast du?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="gender" value="Männlich" required> Männlich<br>
-        <input type="radio" name="gender" value="Weiblich"> Weiblich<br>
-        <input type="radio" name="gender" value="Sonstiges"> Sonstiges<br>
+        
+        <h1>Frage 2: Welches Geschlecht hast du?</h1>
+        <input type="radio" name="gender" value="Weiblich" required> Weiblich<br>
+        <input type="radio" name="gender" value="Männlich"> Männlich<br>
+        <input type="radio" name="gender" value="Divers"> Divers<br>
+        <input type="radio" name="gender" value="Möchte ich nicht angeben"> Möchte ich nicht angeben<br>
         <br>
-    </form>
 
-    <!-- Frage 3 -->
-    <h2>Frage 3: Welcher Religion gehörst du an?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
+        <h1>Frage 3: Welcher Religion gehörst du an?</h1>
         <input type="radio" name="religion" value="Christentum" required> Christentum<br>
         <input type="radio" name="religion" value="Islam"> Islam<br>
         <input type="radio" name="religion" value="Judentum"> Judentum<br>
@@ -89,169 +69,98 @@
         <input type="radio" name="religion" value="Hinduismus"> Hinduismus<br>
         <input type="radio" name="religion" value="Keine Religion"> Keine Religion<br>
         <br>
-    </form>
 
-    <!-- Frage 4 -->
-    <h2>Frage 4: Weißt du, was Sterbehilfe ist?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
+        <h1>Frage 4: Weißt du, was Sterbehilfe ist?</h1>
         <input type="radio" name="know_euthanasia" value="Ja" required> Ja<br>
         <input type="radio" name="know_euthanasia" value="Nein"> Nein<br>
         <br>
-    </form>
 
-    <!-- Frage 4a -->
-    <h2>Frage 4a: Wenn ja, bist du dafür?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
+        <h1>Frage 4a: Wenn ja, bist du dafür?</h1>
         <input type="radio" name="support_euthanasia" value="Ja" required> Ja<br>
         <input type="radio" name="support_euthanasia" value="Nein"> Nein<br>
         <input type="radio" name="support_euthanasia" value="Unsicher"> Unsicher<br>
         <br>
-    </form>
 
-    <!-- Frage 5 -->
-    <h2>Frage 5: Hast du schon Erfahrungen mit Sterbehilfe?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="experience_euthanasia" value="Ja" required> Ja<br>
-        <input type="radio" name="experience_euthanasia" value="Nein"> Nein<br>
+        <h1>Frage 5: Hast du schon Erfahrungen mit Sterbehilfe?</h1>
+        <input type="radio" name="experience" value="Ja, persönlich" required> Ja, persönlich<br>
+        <input type="radio" name="experience" value="Ja, im Bekanntenkreis"> Ja, im Bekanntenkreis<br>
+        <input type="radio" name="experience" value="Nein"> Nein<br>
+        <input type="radio" name="experience" value="Möchte ich nicht angeben"> Möchte ich nicht angeben<br>
         <br>
-    </form>
 
-    <!-- Frage 6 -->
-    <h2>Frage 6: Wer darf Sterbehilfe beanspruchen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="checkbox" name="who_can_request[]" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben"> Alle Personen, die schwer leidende, unheilbare Krankheiten haben<br>
-        <input type="checkbox" name="who_can_request[]" value="Nur Erwachsene in bestimmten Situationen"> Nur Erwachsene in bestimmten Situationen<br>
-        <input type="checkbox" name="who_can_request[]" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können"> Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können<br>
-        <input type="checkbox" name="who_can_request[]" value="Niemand"> Niemand<br>
+        <h1>Frage 6: Wer darf Sterbehilfe beanspruchen?</h1>
+        <input type="checkbox" name="claim_euthanasia" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben"> Alle Personen, die schwer leidende, unheilbare Krankheiten haben<br>
+        <input type="checkbox" name="claim_euthanasia" value="Nur Erwachsene in bestimmten Situationen"> Nur Erwachsene in bestimmten Situationen<br>
+        <input type="checkbox" name="claim_euthanasia" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können"> Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können<br>
+        <input type="checkbox" name="claim_euthanasia" value="Niemand"> Niemand<br>
         <br>
-    </form>
 
-    <!-- Frage 7 -->
-    <h2>Frage 7: Darf eine 90-Jährige Oma mit vielen Krankheiten Sterbehilfe erhalten?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="90_year_old_grandma" value="Ja" required> Ja<br>
-        <input type="radio" name="90_year_old_grandma" value="Nein"> Nein<br>
-        <input type="radio" name="90_year_old_grandma" value="Unsicher"> Unsicher<br>
+        <h1>Frage 7: Darf eine 90-Jährige Oma mit vielen Krankheiten (z. B. Demenz, Alzheimer, Krebs im Endstadium) Sterbehilfe erhalten?</h1>
+        <input type="radio" name="old_grandma" value="Ja" required> Ja<br>
+        <input type="radio" name="old_grandma" value="Nein"> Nein<br>
+        <input type="radio" name="old_grandma" value="Unsicher"> Unsicher<br>
         <br>
-    </form>
 
-    <!-- Frage 8 -->
-    <h2>Frage 8: Darf ein 9-Jähriges Kind mit Krebs Sterbehilfe in Anspruch nehmen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="9_year_old_child" value="Ja" required> Ja<br>
-        <input type="radio" name="9_year_old_child" value="Nein"> Nein<br>
-        <input type="radio" name="9_year_old_child" value="Unsicher"> Unsicher<br>
+        <h1>Frage 8: Darf ein 9-Jähriges Kind mit Krebs Sterbehilfe in Anspruch nehmen?</h1>
+        <input type="radio" name="nine_year_old" value="Ja" required> Ja<br>
+        <input type="radio" name="nine_year_old" value="Nein"> Nein<br>
+        <input type="radio" name="nine_year_old" value="Unsicher"> Unsicher<br>
         <br>
-    </form>
 
-    <!-- Frage 9 -->
-    <h2>Frage 9: Darf ein 40-Jähriger Familienvater mit einem Schlaganfall Sterbehilfe beanspruchen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="40_year_old_father" value="Ja" required> Ja<br>
-        <input type="radio" name="40_year_old_father" value="Nein"> Nein<br>
-        <input type="radio" name="40_year_old_father" value="Unsicher"> Unsicher<br>
+        <h1>Frage 9: Darf ein 40-Jähriger Familienvater mit einem Schlaganfall Sterbehilfe beanspruchen?</h1>
+        <input type="radio" name="father_stroke" value="Ja" required> Ja<br>
+        <input type="radio" name="father_stroke" value="Nein"> Nein<br>
+        <input type="radio" name="father_stroke" value="Unsicher"> Unsicher<br>
         <br>
-    </form>
 
-    <!-- Frage 10 -->
-    <h2>Frage 10: Darf eine 29-Jährige Frau mit Schizophrenie Sterbehilfe in Anspruch nehmen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="29_year_old_woman" value="Ja" required> Ja<br>
-        <input type="radio" name="29_year_old_woman" value="Nein"> Nein<br>
-        <input type="radio" name="29_year_old_woman" value="Unsicher"> Unsicher<br>
+        <h1>Frage 10: Darf eine 29-Jährige Frau mit Schizophrenie Sterbehilfe in Anspruch nehmen?</h1>
+        <input type="radio" name="schizophrenia_woman" value="Ja" required> Ja<br>
+        <input type="radio" name="schizophrenia_woman" value="Nein"> Nein<br>
+        <input type="radio" name="schizophrenia_woman" value="Unsicher"> Unsicher<br>
         <br>
-    </form>
 
-    <!-- Frage 11 -->
-    <h2>Frage 11: Darf ein 35-Jähriger Soldat mit PTSD Sterbehilfe beanspruchen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="35_year_old_soldier" value="Ja" required> Ja<br>
-        <input type="radio" name="35_year_old_soldier" value="Nein"> Nein<br>
-        <input type="radio" name="35_year_old_soldier" value="Unsicher"> Unsicher<br>
+        <h1>Frage 11: Darf ein 35-Jähriger Soldat mit PTBS Sterbehilfe erhalten?</h1>
+        <input type="radio" name="soldier_ptsd" value="Ja" required> Ja<br>
+        <input type="radio" name="soldier_ptsd" value="Nein"> Nein<br>
+        <input type="radio" name="soldier_ptsd" value="Unsicher"> Unsicher<br>
         <br>
-    </form>
 
-    <!-- Frage 12 -->
-    <h2>Frage 12: Darf ein 7-Jähriges Kind mit bipolarer Störung Sterbehilfe beanspruchen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="7_year_old_child" value="Ja" required> Ja<br>
-        <input type="radio" name="7_year_old_child" value="Nein"> Nein<br>
-        <input type="radio" name="7_year_old_child" value="Unsicher"> Unsicher<br>
+        <h1>Frage 12: Darf ein 7-Jähriges Kind mit bipolarer Störung Sterbehilfe beanspruchen?</h1>
+        <input type="radio" name="bipolar_child" value="Ja" required> Ja<br>
+        <input type="radio" name="bipolar_child" value="Nein"> Nein<br>
+        <input type="radio" name="bipolar_child" value="Unsicher"> Unsicher<br>
         <br>
-    </form>
 
-    <!-- Frage 13 -->
-    <h2>Frage 13: Darf eine 52-Jährige Frau mit ME/CFS Sterbehilfe erhalten?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="52_year_old_woman" value="Ja" required> Ja<br>
-        <input type="radio" name="52_year_old_woman" value="Nein"> Nein<br>
-        <input type="radio" name="52_year_old_woman" value="Unsicher"> Unsicher<br>
+        <h1>Frage 13: Darf eine 52-Jährige Frau mit ME/CFS Sterbehilfe erhalten?</h1>
+        <input type="radio" name="cfs_woman" value="Ja" required> Ja<br>
+        <input type="radio" name="cfs_woman" value="Nein"> Nein<br>
+        <input type="radio" name="cfs_woman" value="Unsicher"> Unsicher<br>
         <br>
-    </form>
 
-    <!-- Frage 14 -->
-    <h2>Frage 14: Darf eine 14-Jährige mit Down-Syndrom Sterbehilfe beanspruchen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="14_year_old_down_syndrome" value="Ja" required> Ja<br>
-        <input type="radio" name="14_year_old_down_syndrome" value="Nein"> Nein<br>
-        <input type="radio" name="14_year_old_down_syndrome" value="Unsicher"> Unsicher<br>
+        <h1>Frage 14: Darf eine 14-Jährige mit Down-Syndrom Sterbehilfe beanspruchen?</h1>
+        <input type="radio" name="down_syndrome" value="Ja" required> Ja<br>
+        <input type="radio" name="down_syndrome" value="Nein"> Nein<br>
+        <input type="radio" name="down_syndrome" value="Unsicher"> Unsicher<br>
         <br>
+
+        <input type="submit" value="Abschicken">
     </form>
 
-    <!-- Frage 15 -->
-    <h2>Frage 15: Darf ein 27-Jähriger Mann, der querschnittsgelähmt im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="27_year_old_paraplegic_man" value="Ja" required> Ja<br>
-        <input type="radio" name="27_year_old_paraplegic_man" value="Nein"> Nein<br>
-        <input type="radio" name="27_year_old_paraplegic_man" value="Unsicher"> Unsicher<br>
-        <br>
-    </form>
+    <script>
+        (function() {
+            emailjs.init("qsmH-iM0gbpRg_ncO"); // YOUR_USER_ID
+        })();
 
-    <!-- Frage 16 -->
-    <h2>Frage 16: Wer darf darüber entscheiden?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="checkbox" name="who_can_decide[]" value="Der Patient selbst"> Der Patient selbst<br>
-        <input type="checkbox" name="who_can_decide[]" value="Familie oder gesetzliche Vertreter"> Familie oder gesetzliche Vertreter<br>
-        <input type="checkbox" name="who_can_decide[]" value="Ärzte und Ethikkommissionen"> Ärzte und Ethikkommissionen<br>
-        <br>
-    </form>
+        document.getElementById("survey-form").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-    <!-- Frage 17 -->
-    <h2>Frage 17: Wer soll es durchführen?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="checkbox" name="who_should_conduct[]" value="Ärzte"> Ärzte<br>
-        <input type="checkbox" name="who_should_conduct[]" value="Pfleger"> Pfleger<br>
-        <input type="checkbox" name="who_should_conduct[]" value="Familie oder gesetzliche Vertreter"> Familie oder gesetzliche Vertreter<br>
-        <input type="checkbox" name="who_should_conduct[]" value="Der Patient selbst"> Der Patient selbst<br>
-        <br>
-    </form>
-
-    <!-- Frage 18 -->
-    <h2>Frage 18: Findest du Sterbehilfe moralisch vertretbar?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="moral_acceptance" value="Ja" required> Ja<br>
-        <input type="radio" name="moral_acceptance" value="Nein"> Nein<br>
-        <input type="radio" name="moral_acceptance" value="Unsicher"> Unsicher<br>
-        <br>
-    </form>
-
-    <!-- Frage 19 -->
-    <h2>Frage 19: Wusstest du, dass andere Länder Sterbehilfe anbieten?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="know_other_countries" value="Ja" required> Ja<br>
-        <input type="radio" name="know_other_countries" value="Nein"> Nein<br>
-        <br>
-    </form>
-
-    <!-- Frage 20 -->
-    <h2>Frage 20: Bist du für Sterbehilfe?</h2>
-    <form action="https://formspree.io/f/mvgpervb" method="POST">
-        <input type="radio" name="for_euthanasia" value="Ja" required> Ja<br>
-        <input type="radio" name="for_euthanasia" value="Nein"> Nein<br>
-        <input type="radio" name="for_euthanasia" value="Unsicher"> Unsicher<br>
-        <br>
-    </form>
-
-    <button type="submit">Umfrage abschicken</button>
+            emailjs.sendForm("service_ler4x7s", "template_srv4hjv", this)
+                .then(function() {
+                    alert("Umfrage erfolgreich abgeschickt!");
+                }, function(error) {
+                    alert("Ein Fehler ist aufgetreten: " + JSON.stringify(error));
+                });
+        });
+    </script>
 </body>
 </html>
