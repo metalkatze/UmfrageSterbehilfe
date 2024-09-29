@@ -3,58 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umfrage zum Thema Sterbehilfe</title>
+    <title>Sterbehilfe Umfrage</title>
     <style>
         body {
-            background-color: #000080; /* Marineblau */
-            color: #000000; /* Schwarz */
-            font-family: 'Helvetica', sans-serif;
-            font-size: 12px;
+            background-color: #191970; /* Mitternachtsblau */
+            color: white;
+            font-family: Helvetica, sans-serif;
         }
 
         h1 {
-            font-size: 14px;
-            font-weight: bold; /* Fett für Fragen */
+            font-size: 16px;
         }
 
-        input[type="radio"], input[type="checkbox"], input[type="submit"] {
+        label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-container {
+            margin: 20px;
+        }
+
+        .form-field {
+            background-color: #ADD8E6; /* Hellblau */
+            color: #000000; /* Schwarz */
+            padding: 10px;
             margin: 10px 0;
-            color: #ADD8E6; /* Hellblau */
+            border-radius: 5px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
         }
 
         input[type="submit"] {
             background-color: #ADD8E6; /* Hellblau */
+            color: #000000; /* Schwarz */
+            padding: 10px 20px;
             border: none;
-            color: #000000; /* Schwarz für den Text */
-            padding: 10px 15px;
+            border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
+            font-size: 12px;
         }
 
         input[type="submit"]:hover {
-            background-color: #87CEEB; /* Helleres Blau beim Hover */
+            background-color: #87CEEB;
         }
 
-        /* Tooltip Styles */
         .tooltip {
             position: relative;
             display: inline-block;
+            border-bottom: 1px dotted white;
             cursor: pointer;
         }
 
         .tooltip .tooltiptext {
             visibility: hidden;
-            width: 150px;
-            background-color: #fff;
+            width: 200px;
+            background-color: #f9f9f9;
             color: #000;
             text-align: center;
             border-radius: 6px;
             padding: 5px;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position über dem Wort */
+            bottom: 125%; 
             left: 50%;
-            margin-left: -75px; /* Zentriert Tooltip */
+            margin-left: -100px;
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -224,10 +240,11 @@
             <label><input type="radio" name="euthanasia_support_total" value="Unsicher" onclick="lockQuestion(this)"> Unsicher</label>
         </div>
 
-        <button type="button" onclick="submitForm()">Absenden</button>
-    </form>
+               <input type="submit" value="Absenden">
+        </form>
+    </div>
 
-  <!-- EmailJS SDK -->
+    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
     <script type="text/javascript">
         (function() {
