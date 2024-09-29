@@ -3,46 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umfrage zu Sterbehilfe</title>
+    <title>Sterbehilfe Umfrage</title>
     <style>
         body {
-            background-color: #003366; /* Dunkelblau */
-            color: white; /* Schriftfarbe für Fragen */
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 14px; /* Schriftgröße für Fragen */
+            background-color: #191970; /* Mitternachtsblau */
+            color: white;
+            font-family: Helvetica, sans-serif;
         }
 
         h1 {
-            font-size: 16px; /* Schriftgröße für Titel */
+            font-size: 16px;
         }
 
-        .question {
-            margin: 20px 0;
+        label {
+            font-size: 14px;
+            font-weight: bold;
         }
 
-        input[type="radio"], input[type="checkbox"] {
+        .form-container {
+            margin: 20px;
+        }
+
+        .form-field {
+            background-color: #ADD8E6; /* Hellblau */
+            color: #000000; /* Schwarz */
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
             margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #ADD8E6; /* Hellblau */
+            color: #000000; /* Schwarz */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #87CEEB;
         }
 
         .tooltip {
             position: relative;
             display: inline-block;
+            border-bottom: 1px dotted white;
             cursor: pointer;
         }
 
         .tooltip .tooltiptext {
             visibility: hidden;
-            width: 160px;
-            background-color: #555;
-            color: #fff;
+            width: 200px;
+            background-color: #f9f9f9;
+            color: #000;
             text-align: center;
             border-radius: 6px;
             padding: 5px;
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Position über dem Tooltip */
+            bottom: 125%; 
             left: 50%;
-            margin-left: -80px; /* Zentrieren */
+            margin-left: -100px;
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -50,26 +76,6 @@
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
-        }
-
-        button {
-            background-color: #66ccff; /* Hellblau */
-            color: black; /* Schriftfarbe für Button */
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 12px; /* Schriftgröße für Button */
-        }
-
-        input[type="text"], input[type="email"], select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 20px;
-            background-color: #66ccff; /* Hellblau */
-            color: black; /* Schriftfarbe für Felder */
-            border: none;
-            border-radius: 4px;
         }
     </style>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -235,38 +241,23 @@
         <button type="button" onclick="submitForm()">Absenden</button>
     </form>
 
-    <script>
-        (function(){
-            emailjs.init("qsmH-iM0gbpRg_ncO"); // Benutzer-ID für EmailJS
+  <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("qsmH-iM0gbpRg_ncO");
         })();
 
-        function lockQuestion(element) {
-            const questions = document.querySelectorAll('.question');
-            questions.forEach(question => {
-                const inputs = question.querySelectorAll('input');
-                inputs.forEach(input => {
-                    if (!input.checked) {
-                        input.disabled = true; // Fragen sperren, nachdem sie beantwortet wurden
-                    }
+        document.getElementById('surveyForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Verhindert das automatische Absenden des Formulars
+
+            emailjs.sendForm('service_ler4x7s', 'template_srv4hjv', this)
+                .then(function() {
+                    alert('Deine Umfrage wurde erfolgreich abgeschickt!');
+                }, function(error) {
+                    alert('Es gab einen Fehler beim Abschicken der Umfrage: ' + JSON.stringify(error));
                 });
-            });
-        }
-
-        function submitForm() {
-            const formData = new FormData(document.getElementById('surveyForm'));
-            const data = {};
-
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            emailjs.send("service_ler4x7s", "template_ler4x7s", data)
-                .then((response) => {
-                    alert("Formular erfolgreich abgesendet!", response.status, response.text);
-                }, (error) => {
-                    alert("Fehler beim Absenden des Formulars: ", error);
-                });
-        }
+        });
     </script>
 </body>
 </html>
