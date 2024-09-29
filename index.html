@@ -35,9 +35,33 @@
             background-color: #87CEEB; /* Helleres Blau beim Hover */
         }
 
-        textarea {
-            width: 100%;
-            height: 100px;
+        /* Tooltip Styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 150px;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position über dem Wort */
+            left: 50%;
+            margin-left: -75px; /* Zentriert Tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
