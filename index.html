@@ -3,79 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sterbehilfe Umfrage</title>
+    <title>Umfrage zum Thema Sterbehilfe</title>
     <style>
         body {
-            background-color: #191970; /* Mitternachtsblau */
-            color: white;
-            font-family: Helvetica, sans-serif;
+            background-color: #000080; /* Marineblau */
+            color: #000000; /* Schwarz */
+            font-family: 'Helvetica', sans-serif;
+            font-size: 12px;
         }
 
         h1 {
-            font-size: 16px;
-        }
-
-        label {
             font-size: 14px;
-            font-weight: bold;
+            font-weight: bold; /* Fett für Fragen */
         }
 
-        .form-container {
-            margin: 20px;
-        }
-
-        .form-field {
-            background-color: #ADD8E6; /* Hellblau */
-            color: #000000; /* Schwarz */
-            padding: 10px;
+        input[type="radio"], input[type="checkbox"], input[type="submit"] {
             margin: 10px 0;
-        }
-
-        input[type="radio"],
-        input[type="checkbox"] {
-            margin-right: 10px;
+            color: #ADD8E6; /* Hellblau */
         }
 
         input[type="submit"] {
             background-color: #ADD8E6; /* Hellblau */
-            color: #000000; /* Schwarz */
-            padding: 10px 20px;
             border: none;
+            color: #000000; /* Schwarz für den Text */
+            padding: 10px 15px;
             cursor: pointer;
-            font-size: 12px;
+            font-weight: bold;
         }
 
         input[type="submit"]:hover {
-            background-color: #87CEEB;
+            background-color: #87CEEB; /* Helleres Blau beim Hover */
         }
 
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            border-bottom: 1px dotted white;
-            cursor: pointer;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: #f9f9f9;
-            color: #000;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%; 
-            left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
+        textarea {
+            width: 100%;
+            height: 100px;
         }
     </style>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
