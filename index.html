@@ -61,78 +61,218 @@
         <form id="surveyForm">
             <!-- Frage 1 -->
             <div class="form-field">
-                <label for="age">1. Wie alt bist du?</label><br>
+                <label>1. Wie alt bist du?</label><br>
                 <div>
-                    <label><input type="radio" name="age" value="Unter 18"> Unter 18</label><br>
-                    <label><input type="radio" name="age" value="18-29"> 18-29</label><br>
-                    <label><input type="radio" name="age" value="30-39"> 30-39</label><br>
-                    <label><input type="radio" name="age" value="40-49"> 40-49</label><br>
-                    <label><input type="radio" name="age" value="50-59"> 50-59</label><br>
-                    <label><input type="radio" name="age" value="60 oder älter"> 60 oder älter</label>
+                    <label><input type="radio" name="age" value="Unter 18"> a) Unter 18</label><br>
+                    <label><input type="radio" name="age" value="18-29"> b) 18-29</label><br>
+                    <label><input type="radio" name="age" value="30-39"> c) 30-39</label><br>
+                    <label><input type="radio" name="age" value="40-49"> d) 40-49</label><br>
+                    <label><input type="radio" name="age" value="50-59"> e) 50-59</label><br>
+                    <label><input type="radio" name="age" value="60 oder älter"> f) 60 oder älter</label>
                 </div>
             </div>
 
-            <!-- Weitere Fragen hier, wie in deinem originalen Code... -->
+            <!-- Frage 2 -->
+            <div class="form-field">
+                <label>2. Welches Geschlecht hast du?</label><br>
+                <div>
+                    <label><input type="radio" name="gender" value="Weiblich"> a) Weiblich</label><br>
+                    <label><input type="radio" name="gender" value="Männlich"> b) Männlich</label><br>
+                    <label><input type="radio" name="gender" value="Divers"> c) Divers</label>
+                </div>
+            </div>
+
+            <!-- Frage 3 -->
+            <div class="form-field">
+                <label>3. Welcher Religion gehörst du an?</label><br>
+                <div>
+                    <label><input type="radio" name="religion" value="Christentum"> a) Christentum</label><br>
+                    <label><input type="radio" name="religion" value="Islam"> b) Islam</label><br>
+                    <label><input type="radio" name="religion" value="Judentum"> c) Judentum</label><br>
+                    <label><input type="radio" name="religion" value="Buddhismus"> d) Buddhismus</label><br>
+                    <label><input type="radio" name="religion" value="Hinduismus"> e) Hinduismus</label><br>
+                    <label><input type="radio" name="religion" value="Keine Religion"> f) Keine Religion</label>
+                </div>
+            </div>
+
+            <!-- Frage 4 -->
+            <div class="form-field">
+                <label>4. Weißt du, was Sterbehilfe ist?</label><br>
+                <div>
+                    <label><input type="radio" name="knowEuthanasia" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="knowEuthanasia" value="Nein"> b) Nein</label>
+                </div>
+            </div>
+
+            <!-- Frage 4a -->
+            <div class="form-field">
+                <label>4a. Wenn ja, bist du dafür?</label><br>
+                <div>
+                    <label><input type="radio" name="supportEuthanasia" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="supportEuthanasia" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="supportEuthanasia" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 5 -->
+            <div class="form-field">
+                <label>5. Hast du schon Erfahrungen mit Sterbehilfe?</label><br>
+                <div>
+                    <label><input type="radio" name="experienceEuthanasia" value="Ja, persönlich"> a) Ja, persönlich</label><br>
+                    <label><input type="radio" name="experienceEuthanasia" value="Ja, im Bekanntenkreis"> b) Ja, im Bekanntenkreis</label><br>
+                    <label><input type="radio" name="experienceEuthanasia" value="Nein"> c) Nein</label>
+                </div>
+            </div>
 
             <!-- Frage 6 -->
             <div class="form-field">
-                <label for="whoEuthanasia">6. Wer darf Sterbehilfe beanspruchen?</label><br>
+                <label>6. Wer darf Sterbehilfe beanspruchen?</label><br>
                 <div>
-                    <label><input type="checkbox" name="whoEuthanasia" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben"> Alle Personen, die schwer leidende, unheilbare Krankheiten haben</label><br>
-                    <label><input type="checkbox" name="whoEuthanasia" value="Nur Erwachsene in bestimmten Situationen"> Nur Erwachsene in bestimmten Situationen</label><br>
-                    <label><input type="checkbox" name="whoEuthanasia" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können"> Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können</label><br>
-                    <label><input type="checkbox" name="whoEuthanasia" value="Niemand"> Niemand</label>
+                    <label><input type="checkbox" name="whoEuthanasia" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben"> a) Alle Personen, die schwer leidende, unheilbare Krankheiten haben</label><br>
+                    <label><input type="checkbox" name="whoEuthanasia" value="Nur Erwachsene in bestimmten Situationen"> b) Nur Erwachsene in bestimmten Situationen</label><br>
+                    <label><input type="checkbox" name="whoEuthanasia" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können"> c) Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können</label><br>
+                    <label><input type="checkbox" name="whoEuthanasia" value="Niemand"> d) Niemand</label>
+                </div>
+            </div>
+
+            <!-- Frage 7 -->
+            <div class="form-field">
+                <label>7. Darf eine 90-Jährige Oma mit vielen Krankheiten (z. B. Demenz, Alzheimer, Krebs im Endstadium) Sterbehilfe erhalten?</label><br>
+                <div>
+                    <label><input type="radio" name="90yoGrandmother" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="90yoGrandmother" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="90yoGrandmother" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 8 -->
+            <div class="form-field">
+                <label>8. Darf ein 9-Jähriges Kind mit Krebs Sterbehilfe in Anspruch nehmen?</label><br>
+                <div>
+                    <label><input type="radio" name="9yoChild" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="9yoChild" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="9yoChild" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 9 -->
+            <div class="form-field">
+                <label>9. Darf ein 40-Jähriger Familienvater mit einem Schlaganfall (mit einseitiger Lähmung) Sterbehilfe beanspruchen?</label><br>
+                <div>
+                    <label><input type="radio" name="40yoFather" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="40yoFather" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="40yoFather" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 10 -->
+            <div class="form-field">
+                <label>10. Darf eine 29-Jährige Frau mit Schizophrenie Sterbehilfe in Anspruch nehmen?</label><br>
+                <div>
+                    <label><input type="radio" name="29yoSchizophrenia" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="29yoSchizophrenia" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="29yoSchizophrenia" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 11 -->
+            <div class="form-field">
+                <label>11. Darf ein 35-Jähriger Soldat mit PTBS (Posttraumatische Belastungsstörung) Sterbehilfe erhalten?</label><br>
+                <div>
+                    <label><input type="radio" name="35yoPTSD" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="35yoPTSD" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="35yoPTSD" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 12 -->
+            <div class="form-field">
+                <label>12. Darf ein 7-Jähriges Kind mit bipolarer Störung Sterbehilfe beanspruchen?</label><br>
+                <div>
+                    <label><input type="radio" name="7yoBipolar" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="7yoBipolar" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="7yoBipolar" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 13 -->
+            <div class="form-field">
+                <label>13. Darf eine 52-Jährige Frau mit ME/CFS Sterbehilfe erhalten?</label><br>
+                <div>
+                    <label><input type="radio" name="52yoCFS" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="52yoCFS" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="52yoCFS" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 14 -->
+            <div class="form-field">
+                <label>14. Darf eine 14-Jährige mit Down-Syndrom Sterbehilfe beanspruchen?</label><br>
+                <div>
+                    <label><input type="radio" name="14yoDownSyndrome" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="14yoDownSyndrome" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="14yoDownSyndrome" value="Unsicher"> c) Unsicher</label>
+                </div>
+            </div>
+
+            <!-- Frage 15 -->
+            <div class="form-field">
+                <label>15. Darf ein 27-Jähriger Mann, der querschnittsgelähmt im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?</label><br>
+                <div>
+                    <label><input type="radio" name="27yoParaplegic" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="27yoParaplegic" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="27yoParaplegic" value="Unsicher"> c) Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 16 -->
             <div class="form-field">
-                <label for="decisionEuthanasia">16. Wer darf darüber entscheiden?</label><br>
+                <label>16. Wer darf darüber entscheiden?</label><br>
                 <div>
-                    <label><input type="checkbox" name="decisionEuthanasia" value="Der Patient selbst"> Der Patient selbst</label><br>
-                    <label><input type="checkbox" name="decisionEuthanasia" value="Familie oder gesetzliche Vertreter"> Familie oder gesetzliche Vertreter</label><br>
-                    <label><input type="checkbox" name="decisionEuthanasia" value="Ärzte und Pfleger"> Ärzte und Pfleger</label><br>
-                    <label><input type="checkbox" name="decisionEuthanasia" value="Ethikkommissionen"> Ethikkommissionen</label>
+                    <label><input type="checkbox" name="decisionEuthanasia" value="Der Patient selbst"> a) Der Patient selbst</label><br>
+                    <label><input type="checkbox" name="decisionEuthanasia" value="Familie oder gesetzliche Vertreter"> b) Familie oder gesetzliche Vertreter</label><br>
+                    <label><input type="checkbox" name="decisionEuthanasia" value="Ärzte und Pfleger"> c) Ärzte und Pfleger</label><br>
+                    <label><input type="checkbox" name="decisionEuthanasia" value="Ethikkommissionen"> d) Ethikkommissionen</label>
                 </div>
             </div>
 
             <!-- Frage 17 -->
             <div class="form-field">
-                <label for="performEuthanasia">17. Wer soll es durchführen?</label><br>
+                <label>17. Wer soll es durchführen?</label><br>
                 <div>
-                    <label><input type="checkbox" name="performEuthanasia" value="Ärzte"> Ärzte</label><br>
-                    <label><input type="checkbox" name="performEuthanasia" value="Pfleger"> Pfleger</label><br>
-                    <label><input type="checkbox" name="performEuthanasia" value="Der Patient selbst"> Der Patient selbst</label><br>
-                    <label><input type="checkbox" name="performEuthanasia" value="Familie oder gesetzliche Vertreter"> Familie oder gesetzliche Vertreter</label>
+                    <label><input type="checkbox" name="performEuthanasia" value="Ärzte"> a) Ärzte</label><br>
+                    <label><input type="checkbox" name="performEuthanasia" value="Pfleger"> b) Pfleger</label><br>
+                    <label><input type="checkbox" name="performEuthanasia" value="Der Patient selbst"> c) Der Patient selbst</label><br>
+                    <label><input type="checkbox" name="performEuthanasia" value="Familie oder gesetzliche Vertreter"> d) Familie oder gesetzliche Vertreter</label>
                 </div>
             </div>
 
             <!-- Frage 18 -->
             <div class="form-field">
-                <label for="moralEuthanasia">18. Findest du Sterbehilfe moralisch vertretbar?</label><br>
+                <label>18. Findest du Sterbehilfe moralisch vertretbar?</label><br>
                 <div>
-                    <label><input type="radio" name="moralEuthanasia" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="moralEuthanasia" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="moralEuthanasia" value="Unsicher"> Unsicher</label>
+                    <label><input type="radio" name="moralEuthanasia" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="moralEuthanasia" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="moralEuthanasia" value="Unsicher"> c) Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 19 -->
             <div class="form-field">
-                <label for="countriesEuthanasia">19. Wusstest du, dass andere Länder Sterbehilfe anbieten?</label><br>
+                <label>19. Wusstest du, dass andere Länder Sterbehilfe anbieten?</label><br>
                 <div>
-                    <label><input type="radio" name="countriesEuthanasia" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="countriesEuthanasia" value="Nein"> Nein</label>
+                    <label><input type="radio" name="countriesEuthanasia" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="countriesEuthanasia" value="Nein"> b) Nein</label>
                 </div>
             </div>
 
             <!-- Frage 20 -->
             <div class="form-field">
-                <label for="supportEuthanasia">20. Bist du für Sterbehilfe?</label><br>
+                <label>20. Bist du für Sterbehilfe?</label><br>
                 <div>
-                    <label><input type="radio" name="supportEuthanasia" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="supportEuthanasia" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="supportEuthanasia" value="Unsicher"> Unsicher</label>
+                    <label><input type="radio" name="supportEuthanasia" value="Ja"> a) Ja</label><br>
+                    <label><input type="radio" name="supportEuthanasia" value="Nein"> b) Nein</label><br>
+                    <label><input type="radio" name="supportEuthanasia" value="Unsicher"> c) Unsicher</label>
                 </div>
             </div>
 
@@ -171,10 +311,14 @@
         // Event-Listener für die Radiobuttons, um nach Beantwortung zu sperren
         document.querySelectorAll('input[type="radio"]').forEach((radio) => {
             radio.addEventListener('change', function () {
-                const questionName = this.name;
-                // Sperren der Frage, wenn es nicht 6, 16 oder 17 ist
-                if (![6, 16, 17].includes(+questionName.split(/[^0-9]/).join(''))) {
-                    lockQuestion(questionName);
+                lockQuestion(this.name);
+            });
+        });
+
+        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+            checkbox.addEventListener('change', function () {
+                if (this.parentElement.parentElement.querySelectorAll('input[type="checkbox"]:checked').length > 0) {
+                    lockQuestion(this.name);
                 }
             });
         });
