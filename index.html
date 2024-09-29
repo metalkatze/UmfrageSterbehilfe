@@ -45,7 +45,8 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 12px;
+            font-family: Helvetica, sans-serif;
+            font-size: 14px;
         }
 
         input[type="submit"]:hover {
@@ -124,142 +125,140 @@
             </div>
 
             <!-- Frage 4 -->
-            <div class="form-field">
-                <label for="knowEuthanasia">4. Weißt du, was <span class="tooltip">Sterbehilfe<span class="tooltiptext">Sterbehilfe bedeutet, dass einem unheilbar kranken Menschen geholfen wird, sein Leben zu beenden, um sein Leiden zu verkürzen.</span></span> ist?</label><br>
-                <div>
-                    <label><input type="radio" name="knowEuthanasia" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="knowEuthanasia" value="Nein"> Nein</label>
-                </div>
-            </div>
+<div class="form-field">
+    <label for="knowEuthanasia">4. Weißt du, was Sterbehilfe ist?</label><br>
+    <div>
+        <label><input type="radio" name="knowEuthanasia" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="knowEuthanasia" value="Nein"> Nein</label>
+    </div>
+</div>
 
-            <!-- Frage 4a -->
-            <div class="form-field">
-                <label for="supportEuthanasia">4a. Wenn ja, bist du dafür?</label><br>
-                <div>
-                    <label><input type="radio" name="supportEuthanasia" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="supportEuthanasia" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="supportEuthanasia" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 4a (folgt auf Frage 4) -->
+<div class="form-field">
+    <label for="supportEuthanasia">4a. Wenn ja, bist du dafür?</label><br>
+    <div>
+        <label><input type="radio" name="supportEuthanasia" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="supportEuthanasia" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="supportEuthanasia" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            <!-- Frage 5 -->
-            <div class="form-field">
-                <label for="experienceEuthanasia">5. Hast du schon Erfahrungen mit Sterbehilfe?</label><br>
-                <div>
-                    <label><input type="radio" name="experienceEuthanasia" value="Ja, persönlich"> Ja, persönlich</label><br>
-                    <label><input type="radio" name="experienceEuthanasia" value="Ja, im Bekanntenkreis"> Ja, im Bekanntenkreis</label><br>
-                    <label><input type="radio" name="experienceEuthanasia" value="Nein"> Nein</label>
-                </div>
-            </div>
+<!-- Frage 5 -->
+<div class="form-field">
+    <label for="experienceEuthanasia">5. Hast du schon Erfahrungen mit Sterbehilfe?</label><br>
+    <div>
+        <label><input type="radio" name="experienceEuthanasia" value="Ja, persönlich"> Ja, persönlich</label><br>
+        <label><input type="radio" name="experienceEuthanasia" value="Ja, im Bekanntenkreis"> Ja, im Bekanntenkreis</label><br>
+        <label><input type="radio" name="experienceEuthanasia" value="Nein"> Nein</label>
+    </div>
+</div>
 
-            <!-- Frage 6 -->
-            <div class="form-field">
-                <label for="whoEuthanasia">6. Wer darf Sterbehilfe beanspruchen?</label><br>
-                <div>
-                    <label><input type="checkbox" name="whoEuthanasia" value="Alle Personen mit unheilbaren Krankheiten"> Alle Personen, die schwer leidende, unheilbare Krankheiten haben</label><br>
-                    <label><input type="checkbox" name="whoEuthanasia" value="Nur Erwachsene in bestimmten Situationen"> Nur Erwachsene in bestimmten Situationen</label><br>
-                    <label><input type="checkbox" name="whoEuthanasia" value="Menschen bei vollem Bewusstsein"> Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können</label><br>
-                    <label><input type="checkbox" name="whoEuthanasia" value="Niemand"> Niemand</label>
-                </div>
-            </div>
+<!-- Frage 6 -->
+<div class="form-field">
+    <label for="whoEuthanasia">6. Wer darf Sterbehilfe beanspruchen?</label><br>
+    <div>
+        <label><input type="checkbox" name="whoEuthanasia" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben"> Alle Personen, die schwer leidende, unheilbare Krankheiten haben</label><br>
+        <label><input type="checkbox" name="whoEuthanasia" value="Nur Erwachsene in bestimmten Situationen"> Nur Erwachsene in bestimmten Situationen</label><br>
+        <label><input type="checkbox" name="whoEuthanasia" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können"> Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können</label><br>
+        <label><input type="checkbox" name="whoEuthanasia" value="Niemand"> Niemand</label>
+    </div>
+</div>
 
-            <!-- Frage 7 -->
-            <div class="form-field">
-                <label for="omaEuthanasia">7. Darf eine 90-Jährige Oma mit vielen Krankheiten (z. B. <span class="tooltip">Demenz<span class="tooltiptext">Demenz ist eine Erkrankung, die das Gedächtnis und das Denkvermögen beeinträchtigt.</span></span>, <span class="tooltip">Alzheimer<span class="tooltiptext">Alzheimer ist eine spezielle Form der Demenz, die vor allem das Gedächtnis betrifft.</span></span>, <span class="tooltip">Krebs im Endstadium<span class="tooltiptext">Krebs im Endstadium bedeutet, dass die Krankheit so weit fortgeschritten ist, dass keine Heilung mehr möglich ist.</span></span>) Sterbehilfe erhalten?</label><br>
-                <div>
-                    <label><input type="radio" name="omaEuthanasia" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="omaEuthanasia" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="omaEuthanasia" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 7 -->
+<div class="form-field">
+    <label for="90yoGrandmother">7. Darf eine 90-Jährige Oma mit vielen Krankheiten (z.B. Demenz, Alzheimer, Krebs im Endstadium) Sterbehilfe erhalten?</label><br>
+    <div>
+        <label><input type="radio" name="90yoGrandmother" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="90yoGrandmother" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="90yoGrandmother" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            <!-- Frage 8 -->
-            <div class="form-field">
-                <label for="childCancer">8. Darf ein 9-jähriges Kind mit Krebs Sterbehilfe in Anspruch nehmen?</label><br>
-                <div>
-                    <label><input type="radio" name="childCancer" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="childCancer" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="childCancer" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 8 -->
+<div class="form-field">
+    <label for="9yoChild">8. Darf ein 9-jähriges Kind mit Krebs Sterbehilfe in Anspruch nehmen?</label><br>
+    <div>
+        <label><input type="radio" name="9yoChild" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="9yoChild" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="9yoChild" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            <!-- Frage 9 -->
-            <div class="form-field">
-                <label for="fatherStroke">9. Darf ein 40-jähriger Familienvater mit einem <span class="tooltip">Schlaganfall<span class="tooltiptext">Ein Schlaganfall ist ein plötzliches Problem mit der Blutversorgung des Gehirns, das zu Behinderungen führen kann.</span></span> (mit <span class="tooltip">einseitiger Lähmung<span class="tooltiptext">Einseitige Lähmung bedeutet, dass eine Körperseite aufgrund des Schlaganfalls nicht mehr bewegt werden kann.</span></span>) Sterbehilfe beanspruchen?</label><br>
-                <div>
-                    <label><input type="radio" name="fatherStroke" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="fatherStroke" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="fatherStroke" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 9 -->
+<div class="form-field">
+    <label for="40yoFather">9. Darf ein 40-Jähriger Familienvater mit einem Schlaganfall (mit einseitiger Lähmung) Sterbehilfe beanspruchen?</label><br>
+    <div>
+        <label><input type="radio" name="40yoFather" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="40yoFather" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="40yoFather" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            <!-- Frage 10 -->
-            <div class="form-field">
-                <label for="womanSchizophrenia">10. Darf eine 29-jährige Frau mit <span class="tooltip">Schizophrenie<span class="tooltiptext">Schizophrenie ist eine psychische Krankheit, bei der Menschen die Realität anders wahrnehmen.</span></span> Sterbehilfe in Anspruch nehmen?</label><br>
-                <div>
-                    <label><input type="radio" name="womanSchizophrenia" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="womanSchizophrenia" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="womanSchizophrenia" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 10 -->
+<div class="form-field">
+    <label for="29yoSchizophrenia">10. Darf eine 29-Jährige Frau mit Schizophrenie Sterbehilfe in Anspruch nehmen?</label><br>
+    <div>
+        <label><input type="radio" name="29yoSchizophrenia" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="29yoSchizophrenia" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="29yoSchizophrenia" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            
-            <!-- Frage 11 -->
-            <div class="form-field">
-                <label for="soldierPTSD">11. Darf ein 35-Jähriger Soldat mit <span class="tooltip">PTBS<span class="tooltiptext">PTBS (Posttraumatische Belastungsstörung) ist eine psychische Erkrankung, die nach traumatischen Erlebnissen auftreten kann.</span></span> Sterbehilfe erhalten?</label><br>
-                <div>
-                    <label><input type="radio" name="soldierPTSD" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="soldierPTSD" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="soldierPTSD" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 11 -->
+<div class="form-field">
+    <label for="35yoPTSD">11. Darf ein 35-Jähriger Soldat mit PTBS (Posttraumatische Belastungsstörung) Sterbehilfe erhalten?</label><br>
+    <div>
+        <label><input type="radio" name="35yoPTSD" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="35yoPTSD" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="35yoPTSD" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            <!-- Frage 12 -->
-            <div class="form-field">
-                <label for="childBipolar">12. Darf ein 7-Jähriges Kind mit <span class="tooltip">bipolarer Störung<span class="tooltiptext">Eine bipolare Störung ist eine Erkrankung, bei der extreme Stimmungsschwankungen auftreten.</span></span> Sterbehilfe beanspruchen?</label><br>
-                <div>
-                    <label><input type="radio" name="childBipolar" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="childBipolar" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="childBipolar" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 12 -->
+<div class="form-field">
+    <label for="7yoBipolar">12. Darf ein 7-Jähriges Kind mit bipolarer Störung Sterbehilfe beanspruchen?</label><br>
+    <div>
+        <label><input type="radio" name="7yoBipolar" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="7yoBipolar" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="7yoBipolar" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            <!-- Frage 13 -->
-            <div class="form-field">
-                <label for="womanMECFS">13. Darf eine 52-Jährige Frau mit <span class="tooltip">ME/CFS<span class="tooltiptext">ME/CFS (Myalgische Enzephalomyelitis/Chronisches Fatigue-Syndrom) ist eine Erkrankung, die extreme Erschöpfung und andere Symptome verursacht.</span></span> Sterbehilfe erhalten?</label><br>
-                <div>
-                    <label><input type="radio" name="womanMECFS" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="womanMECFS" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="womanMECFS" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 13 -->
+<div class="form-field">
+    <label for="52yoCFS">13. Darf eine 52-Jährige Frau mit ME/CFS Sterbehilfe erhalten?</label><br>
+    <div>
+        <label><input type="radio" name="52yoCFS" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="52yoCFS" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="52yoCFS" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            <!-- Frage 14 -->
-            <div class="form-field">
-                <label for="girlDownSyndrome">14. Darf eine 14-Jährige mit <span class="tooltip">Down-Syndrom<span class="tooltiptext">Das Down-Syndrom ist eine genetische Störung, die zu körperlichen und geistigen Beeinträchtigungen führt.</span></span> Sterbehilfe beanspruchen?</label><br>
-                <div>
-                    <label><input type="radio" name="girlDownSyndrome" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="girlDownSyndrome" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="girlDownSyndrome" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
+<!-- Frage 14 -->
+<div class="form-field">
+    <label for="14yoDownSyndrome">14. Darf eine 14-Jährige mit Down-Syndrom Sterbehilfe beanspruchen?</label><br>
+    <div>
+        <label><input type="radio" name="14yoDownSyndrome" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="14yoDownSyndrome" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="14yoDownSyndrome" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
 
-            <!-- Frage 15 -->
-            <div class="form-field">
-                <label for="manParaplegic">15. Darf ein 27-Jähriger Mann, der <span class="tooltip">querschnittsgelähmt<span class="tooltiptext">Querschnittslähmung bedeutet, dass der Mensch ab einer bestimmten Stelle des Rückens seine Muskeln nicht mehr bewegen kann.</span></span> im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?</label><br>
-                <div>
-                    <label><input type="radio" name="manParaplegic" value="Ja"> Ja</label><br>
-                    <label><input type="radio" name="manParaplegic" value="Nein"> Nein</label><br>
-                    <label><input type="radio" name="manParaplegic" value="Unsicher"> Unsicher</label>
-                </div>
-            </div>
-
-            <!-- Frage 16 -->
-            <div class="form-field">
+<!-- Frage 15 -->
+<div class="form-field">
+    <label for="27yoParaplegic">15. Darf ein 27-Jähriger Mann, der querschnittsgelähmt im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?</label><br>
+    <div>
+        <label><input type="radio" name="27yoParaplegic" value="Ja"> Ja</label><br>
+        <label><input type="radio" name="27yoParaplegic" value="Nein"> Nein</label><br>
+        <label><input type="radio" name="27yoParaplegic" value="Unsicher"> Unsicher</label>
+    </div>
+</div>
+<!-- Frage 16 -->
+  <div class="form-field">
                 <label for="decisionEuthanasia">16. Wer darf darüber entscheiden?</label><br>
                 <div>
                     <label><input type="checkbox" name="decisionEuthanasia" value="Der Patient selbst"> Der Patient selbst</label><br>
-                    <label><input type="checkbox" name="decisionEuthanasia" value="Familie oder gesetzliche Vertreter"> Familie oder <span class="tooltip">gesetzliche Vertreter<span class="tooltiptext">Gesetzliche Vertreter sind Personen, die vom Gericht ernannt wurden, um Entscheidungen für jemanden zu treffen.</span></span></label><br>
+                    <label><input type="checkbox" name="decisionEuthanasia" value="Familie oder gesetzliche Vertreter"> Familie oder gesetzliche Vertreter</label><br>
                     <label><input type="checkbox" name="decisionEuthanasia" value="Ärzte und Pfleger"> Ärzte und Pfleger</label><br>
                     <label><input type="checkbox" name="decisionEuthanasia" value="Ethikkommissionen"> Ethikkommissionen</label>
                 </div>
@@ -276,7 +275,7 @@
                 </div>
             </div>
 
-            <!-- Frage 18 -->
+                <!-- Frage 18 -->
             <div class="form-field">
                 <label for="moralEuthanasia">18. Findest du Sterbehilfe moralisch vertretbar?</label><br>
                 <div>
@@ -327,6 +326,24 @@
                 }, function (error) {
                     alert('Es gab einen Fehler beim Abschicken der Umfrage: ' + JSON.stringify(error));
                 });
+        });
+
+        // Funktion zum Sperren von Fragen
+        const lockQuestion = (questionName) => {
+            const options = document.getElementsByName(questionName);
+            for (let option of options) {
+                option.disabled = true;
+            }
+        };
+
+        // Event-Listener für die Radiobuttons, um nach Beantwortung zu sperren
+        document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+            radio.addEventListener('change', function () {
+                const questionName = this.name;
+                if (questionName !== 'decisionEuthanasia' && questionName !== 'performEuthanasia') {
+                    lockQuestion(questionName);
+                }
+            });
         });
     </script>
 </body>
