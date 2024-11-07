@@ -314,7 +314,7 @@
                 </div>
             </div>
 
-            <!-- Absenden Button -->
+              <!-- Absenden Button -->
             <div class="form-field">
                 <input type="submit" value="Absenden">
             </div>
@@ -332,12 +332,45 @@
         document.getElementById('surveyForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            emailjs.sendForm('service_ler4x7s', 'template_srv4hjv', this)
-                .then(function () {
-                    alert('Deine Umfrage wurde erfolgreich abgeschickt!');
-                }, function (error) {
-                    alert('Es gab einen Fehler beim Abschicken der Umfrage: ' + JSON.stringify(error));
-                });
+            // Airtable API Setup
+            const apiUrl = 'https://api.airtable.com/v0/appfvYCuahubaO54i/Umfrage';
+            const apiKey = 'patxcHE5Uk28ox3xf.faae1584b3941a6a121dae59f41c6daf4868dedee4bbe704bd2f82efc05d6dc4';
+
+            // Formulardaten sammeln
+            const formData = new FormData(this);
+            const data = {
+                fields: {
+                    "Alter": formData.get("age"),
+                    "Geschlecht": formData.get("gender"),
+                    "Religion": formData.get("religion"),
+                    // Füge hier die restlichen Fragen hinzu.
+                }
+            };
+
+            // Sende die Formulardaten an Airtable
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Fehler beim Senden an Airtable');
+                }
+            })
+            .then(data => {
+                console.log('Erfolge:', data);
+                alert('Deine Umfrage wurde erfolgreich abgeschickt!');
+            })
+            .catch((error) => {
+                console.error('Fehler:', error);
+                alert('Es gab einen Fehler beim Abschicken der Umfrage: ' + error.message);
+            });
         });
 
         // Funktion zum Sperren einer Frage
