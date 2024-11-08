@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -373,6 +372,17 @@
             });
         });
 
+        // Funktion zum Sperren der Radio-Fragen
+        function lockThis(selected) {
+            const name = selected.name;
+            const radios = document.querySelectorAll(`input[name="${name}"]`);
+
+            // Deaktiviere alle Radio-Buttons dieser Gruppe
+            radios.forEach(radio => {
+                radio.disabled = true;
+            });
+        }
+
         // Tooltip Funktionen für Definitionen
         function showTooltip(event, text) {
             const tooltip = document.getElementById('tooltip');
@@ -388,5 +398,4 @@
         }
     </script>
 </body>
-
 </html>
