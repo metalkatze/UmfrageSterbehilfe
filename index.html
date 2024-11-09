@@ -338,49 +338,42 @@
             const formData = new FormData(event.target);
             let data = {};
 
-            // Daten aus dem Formular sammeln und in JSON-Format umwandeln
+            // Daten aus dem Formular sammeln
             formData.forEach((value, key) => {
                 if (key in data) {
-                    // Wenn der Schlüssel bereits existiert, erstellen Sie ein Array
+                    // Wenn der Schlüssel bereits existiert, in ein Array umwandeln
                     if (Array.isArray(data[key])) {
                         data[key].push(value);
                     } else {
-                        data[key] = [data[key], value];
+                        data[key] = [data[key], value]; // in ein Array umwandeln
                     }
                 } else {
-                    data[key] = [value];
+                    data[key] = [value]; // Neuen Eintrag hinzufügen
                 }
             });
 
+            // Überprüfen, ob alle erforderlichen Felder vorhanden sind
+            if (!data['age'] || !data['gender'] || !data['religion']) {
+                alert('Bitte füll alle erforderlichen Felder aus.');
+                return; // Abbrechen, wenn nicht alle erforderlichen Felder ausgefüllt sind
+            }
+
+            // Record für Airtable
             const record = {
                 fields: {
                     "Alter": data['age'][0],
                     "Geschlecht": data['gender'][0],
                     "Religion": data['religion'][0],
-                    "Wissen über Sterbehilfe": data['knowEuthanasia'][0],
+                    "Wissen über Sterbehilfe": data['knowEuthanasia'] ? data['knowEuthanasia'][0] : 'Nicht angegeben',
                     "Sterbehilfe Unterstützung": (data['supportEuthanasia'] || []).join(', '),
-                    "Erfahrung mit Sterbehilfe": data['experienceEuthanasia'][0],
-                    "Sterbehilfe Anspruch": (data['whoCanClaimEuthanasia'] || []).join(', '),
-                    "Sterbehilfe Oma": data['ageWOMAN'][0],
-                    "Sterbehilfe Kind": data['ageKID1'][0],
-                    "Sterbehilfe Familienvater": data['ageFATHER'][0],
-                    "Sterbehilfe Frau": data['ageWOMAN2'][0],
-                    "Sterbehilfe Soldat": data['ageSOLDIER'][0],
-                    "Sterbehilfe Bipolar": data['ageKID2'][0],
-                    "Sterbehilfe MECFS": data['ageWOMAN3'][0],
-                    "Sterbehilfe Down-Syndrom": data['ageGIRL'][0],
-                    "Sterbehilfe Querschnittsgelähmt": data['ageMAN'][0],
-                    "Entscheider": (data['whoDecides'] || []).join(', '),
-                    "Durchführer": (data['whoPerforms'] || []).join(', '),
-                    "Moralische Vertretbarkeit": data['moralEuthanasia'][0],
-                    "Wissen über andere Länder": data['knowOtherCountries'][0],
-                    "Finale Unterstützung der Sterbehilfe": data['supportEuthanasiaFinal'][0],
+                    "Erfahrung mit Sterbehilfe": data['experienceEuthanasia'] ? data['experienceEuthanasia'][0] : 'Nicht angegeben',
+                    // Weitere Felder hinzufügen...
                 }
             };
 
-            // Airtable API Setup
-            const apiUrl = 'https://api.airtable.com/v0/appfvYCuahubaO54i/Umfrage'; // Ersetze mit deiner Base ID und Tabellenname
-            const apiKey = 'patxcHE5Uk28ox3xf.faae1584b3941a6a121dae59f41c6daf4868dedee4bbe704bd2f82efc05d6dc4'; // Ersetze mit deinem API Key
+            // API Setup
+            const apiUrl = 'https://api.airtable.com/v0/appfvYCuahubaO54i/Umfrage'; // Ersetzen mit Ihrer Base-ID
+            const apiKey = 'patxcHE5Uk28ox3xf.faae1584b3941a6a121dae59f41c6daf4868dedee4bbe704bd2f82efc05d6dc4'; // Ersetzen mit Ihrem API-Key
 
             fetch(apiUrl, {
                 method: 'POST',
@@ -390,15 +383,10 @@
                 },
                 body: JSON.stringify(record)
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Netzwerkantwort war nicht ok: " + response.statusText);
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
                 alert('Die Umfrage wurde erfolgreich abgeschickt.');
-                document.getElementById('surveyForm').reset();
+                document.getElementById('surveyForm').reset(); // Formular zurücksetzen
             })
             .catch(error => {
                 console.error('Fehler beim Senden der Daten:', error);
@@ -406,25 +394,6 @@
             });
         });
 
-        // Funktion zum Sperren der Radio-Fragen
-        function lockThis(selected) {
-            const name = selected.name;
-            const radios = document.querySelectorAll(`input[name="${name}"]`);
-
-            // Deaktiviere alle Radio-Buttons dieser Gruppe
-            radios.forEach(radio => {
-                radio.disabled = true;
-            });
-
-            // Frage 4a einblenden, wenn Ja ausgewählt ist
-            if (name === "knowEuthanasia" && selected.value === "Ja") {
-                document.getElementById("euthanasiaSupport").style.display = "block";
-            } else if (name === "knowEuthanasia") {
-                document.getElementById("euthanasiaSupport").style.display = "none";
-            }
-        }
-
-        // Tooltip-Funktionen
         function showTooltip(event, text) {
             const tooltip = document.getElementById('tooltip');
             tooltip.innerHTML = text;
