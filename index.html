@@ -330,7 +330,21 @@
     </div>
 
     <script>
-        // Tooltip-Funktionen
+        // Funktion zur Anzeige von Frage 4a basierend auf der Antwort auf Frage 4
+        function showFollowUp(selectedRadio) {
+            const followUpElement = document.getElementById('euthanasiaSupport');
+            followUpElement.style.display = 'block'; // Frage 4a anzeigen
+        }
+
+        // Funktion zur Sperrung weiterer Auswahl nach einer Auswahl
+        function lockThis(selectedRadio) {
+            const radios = document.querySelectorAll(`input[name="${selectedRadio.name}"]`);
+            radios.forEach(radio => {
+                radio.disabled = true; // Alle Radios deaktivieren
+            });
+            selectedRadio.disabled = false; // Den ausgewählten Radio weiterhin aktiv lassen
+        }
+
         function showTooltip(event, text) {
             const tooltip = document.getElementById('tooltip');
             tooltip.innerHTML = text;
