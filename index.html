@@ -123,7 +123,7 @@
                 </div>
             </div>
 
-              <!-- Frage 4a -->
+            <!-- Frage 4a -->
             <div class="form-field" id="euthanasiaSupport" style="display:none;">
                 <label>4a. Wenn ja, bist du dafür?</label><br>
                 <div>
@@ -367,7 +367,21 @@
                     "Wissen über Sterbehilfe": data['knowEuthanasia'] ? data['knowEuthanasia'][0] : 'Nicht angegeben',
                     "Sterbehilfe Unterstützung": (data['supportEuthanasia'] || []).join(', '),
                     "Erfahrung mit Sterbehilfe": data['experienceEuthanasia'] ? data['experienceEuthanasia'][0] : 'Nicht angegeben',
-                    // Weitere Felder hinzufügen...
+                    // Fügen Sie hier weitere Felder hinzu, falls nötig
+                    "Demenz": data['ageWOMAN'] ? data['ageWOMAN'][0] : 'Nicht angegeben',
+                    "KrebsKind": data['ageKID1'] ? data['ageKID1'][0] : 'Nicht angegeben',
+                    "Familienvater": data['ageFATHER'] ? data['ageFATHER'][0] : 'Nicht angegeben',
+                    "Schizophrenie": data['ageWOMAN2'] ? data['ageWOMAN2'][0] : 'Nicht angegeben',
+                    "PTBS": data['ageSOLDIER'] ? data['ageSOLDIER'][0] : 'Nicht angegeben',
+                    "Bipolar": data['ageKID2'] ? data['ageKID2'][0] : 'Nicht angegeben',
+                    "ME_CFS": data['ageWOMAN3'] ? data['ageWOMAN3'][0] : 'Nicht angegeben',
+                    "DownSyndrom": data['ageGIRL'] ? data['ageGIRL'][0] : 'Nicht angegeben',
+                    "Querschnittslaehmung": data['ageMAN'] ? data['ageMAN'][0] : 'Nicht angegeben',
+                    "Wer entscheidet": (data['whoDecides'] || []).join(', '),
+                    "Wer führt durch": (data['whoPerforms'] || []).join(', '),
+                    "Moralisch vertretbar": data['moralEuthanasia'] ? data['moralEuthanasia'][0] : 'Nicht angegeben',
+                    "Andere Länder": data['knowOtherCountries'] ? data['knowOtherCountries'][0] : 'Nicht angegeben',
+                    "Unterstützung Sterbehilfe": data['supportEuthanasiaFinal'] ? data['supportEuthanasiaFinal'][0] : 'Nicht angegeben',
                 }
             };
 
