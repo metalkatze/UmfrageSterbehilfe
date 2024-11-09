@@ -47,11 +47,26 @@
             cursor: pointer;
             font-family: Helvetica, sans-serif;
             font-size: 14px;
-            font-weight: bold;
         }
 
         input[type="submit"]:hover {
             background-color: #87CEEB;
+        }
+
+        .definition {
+            cursor: pointer;
+            text-decoration: underline;
+            color: black;
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            background-color: white;
+            color: black;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
@@ -99,20 +114,12 @@
 
             <!-- Frage 4 -->
             <div class="form-field">
-                <label>4. Weißt du, was Sterbehilfe ist?</label><br>
+                <label>4. Weißt du, was 
+                    <span class="definition" onmouseover="showTooltip(event, 'Sterbehilfe ist, wenn jemand einer anderen Person hilft, zu sterben, weil sie sehr krank ist und leidet.')" 
+                          onmouseout="hideTooltip()">Sterbehilfe</span> ist?</label><br>
                 <div>
                     <label><input type="radio" name="knowEuthanasia" value="Ja" onchange="lockThis(this)">Ja</label><br>
                     <label><input type="radio" name="knowEuthanasia" value="Nein" onchange="lockThis(this)">Nein</label>
-                </div>
-            </div>
-
-            <!-- Frage 4a -->
-            <div class="form-field" id="euthanasiaSupport" style="display:none;">
-                <label>4a. Wenn ja, bist du dafür?</label><br>
-                <div>
-                    <label><input type="radio" name="supportEuthanasia" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="supportEuthanasia" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="supportEuthanasia" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
@@ -126,132 +133,159 @@
                 </div>
             </div>
 
-            <!-- Frage 6: Mehrfachauswahl -->
+            <!-- Frage 6 -->
             <div class="form-field">
-                <label>6. Wer darf Sterbehilfe beanspruchen? (Bitte mehrere Antworten auswählen)</label><br>
+                <label>6. Wer darf Sterbehilfe beanspruchen? (Mehrfachauswahl möglich)</label><br>
                 <div>
-                    <label><input type="checkbox" name="euthanasiaEligibility" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben">Alle Personen, die schwer leidende, unheilbare Krankheiten haben</label><br>
-                    <label><input type="checkbox" name="euthanasiaEligibility" value="Nur Erwachsene in bestimmten Situationen">Nur Erwachsene in bestimmten Situationen</label><br>
-                    <label><input type="checkbox" name="euthanasiaEligibility" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können">Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können</label><br>
-                    <label><input type="checkbox" name="euthanasiaEligibility" value="Niemand">Niemand</label>
+                    <label><input type="checkbox" name="whoCanClaimEuthanasia" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben">Alle Menschen, die sehr krank sind und nicht geheilt werden können</label><br>
+                    <label><input type="checkbox" name="whoCanClaimEuthanasia" value="Nur Erwachsene in bestimmten Situationen">Nur Erwachsene in manchen Fällen</label><br>
+                    <label><input type="checkbox" name="whoCanClaimEuthanasia" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können">Nur Menschen, die wissen, was sie machen wollen</label><br>
+                    <label><input type="checkbox" name="whoCanClaimEuthanasia" value="Niemand">Niemand</label>
                 </div>
             </div>
 
             <!-- Frage 7 -->
             <div class="form-field">
-                <label>7. Darf eine 90-Jährige Oma mit vielen Krankheiten (z. B. Demenz, Alzheimer, Krebs im Endstadium) Sterbehilfe erhalten?</label><br>
+                <label>7. Darf eine 90-Jährige Oma mit vielen Krankheiten (z. B. 
+                    <span class="definition" onmouseover="showTooltip(event, 'Demenz ist eine Krankheit, bei der das Gedächtnis und das Denken schlechter werden.')"
+                          onmouseout="hideTooltip()">Demenz</span>, 
+                    <span class="definition" onmouseover="showTooltip(event, 'Alzheimer ist eine Form der Demenz, die sehr schwer wird und das Gedächtnis betrifft.')"
+                          onmouseout="hideTooltip()">Alzheimer</span>, 
+                    <span class="definition" onmouseover="showTooltip(event, 'Krebs im Endstadium bedeutet, dass der Krebs sehr schlimm ist und die Person bald sterben wird.')"
+                          onmouseout="hideTooltip()">Krebs im Endstadium</span>) Sterbehilfe erhalten?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaEligibility90" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaEligibility90" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaEligibility90" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageWOMAN" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageWOMAN" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageWOMAN" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 8 -->
             <div class="form-field">
-                <label>8. Darf ein 9-Jähriges Kind mit Krebs Sterbehilfe in Anspruch nehmen?</label><br>
+                <label>8. Darf ein 9-Jähriges Kind mit 
+                    <span class="definition" onmouseover="showTooltip(event, 'Krebs ist eine Krankheit, bei der Zellen im Körper unkontrolliert wachsen.')"
+                          onmouseout="hideTooltip()">Krebs</span> Sterbehilfe in Anspruch nehmen?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaEligibilityChild" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaEligibilityChild" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaEligibilityChild" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageKID1" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageKID1" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageKID1" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 9 -->
             <div class="form-field">
-                <label>9. Darf ein 40-Jähriger Familienvater mit einem Schlaganfall (mit einseitiger Lähmung) Sterbehilfe beanspruchen?</label><br>
+                <label>9. Darf ein 40-Jähriger Familienvater mit einem 
+                    <span class="definition" onmouseover="showTooltip(event, 'Ein Schlaganfall passiert, wenn das Gehirn nicht genug Blut bekommt und geschädigt wird.')"
+                          onmouseout="hideTooltip()">Schlaganfall</span> (mit 
+                    <span class="definition" onmouseover="showTooltip(event, 'Eine einseitige Lähmung bedeutet, dass eine Körperseite nicht mehr richtig funktioniert.')"
+                          onmouseout="hideTooltip()">einer einseitigen Lähmung</span>) Sterbehilfe beanspruchen?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaEligibilityFather" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaEligibilityFather" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaEligibilityFather" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageFATHER" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageFATHER" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageFATHER" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 10 -->
             <div class="form-field">
-                <label>10. Darf eine 29-Jährige Frau mit Schizophrenie Sterbehilfe in Anspruch nehmen?</label><br>
+                <label>10. Darf eine 29-Jährige Frau mit 
+                    <span class="definition" onmouseover="showTooltip(event, 'Schizophrenie ist eine Krankheit, die das Denken und Fühlen einer Person beeinflusst.')"
+                          onmouseout="hideTooltip()">Schizophrenie</span> Sterbehilfe in Anspruch nehmen?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaEligibilityWoman" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaEligibilityWoman" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaEligibilityWoman" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageWOMAN2" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageWOMAN2" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageWOMAN2" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 11 -->
             <div class="form-field">
-                <label>11. Darf ein 35-Jähriger Soldat mit PTBS (Posttraumatischer Belastungsstörung) Sterbehilfe erhalten?</label><br>
+                <label>11. Darf ein 35-Jähriger Soldat mit 
+                    <span class="definition" onmouseover="showTooltip(event, 'PTBS ist ein Problem, das nach schlimmen Erlebnissen kommt, und kann Traurigkeit oder Angst verursachen.')"
+                          onmouseout="hideTooltip()">PTBS</span> (Posttraumatische Belastungsstörung) Sterbehilfe erhalten?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaPTBS" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaPTBS" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaPTBS" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageSOLDIER" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageSOLDIER" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageSOLDIER" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 12 -->
             <div class="form-field">
-                <label>12. Darf ein 7-Jähriges Kind mit bipolarer Störung Sterbehilfe beanspruchen?</label><br>
+                <label>12. Darf ein 7-Jähriges Kind mit 
+                    <span class="definition" onmouseover="showTooltip(event, 'Bipolare Störung ist eine Krankheit, bei der die Stimmung sehr schnell wechselt.')"
+                          onmouseout="hideTooltip()">bipolarer Störung</span> Sterbehilfe beanspruchen?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaBipolar" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaBipolar" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaBipolar" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageKID2" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageKID2" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageKID2" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 13 -->
             <div class="form-field">
-                <label>13. Darf eine 52-Jährige Frau mit ME/CFS Sterbehilfe erhalten?</label><br>
+                <label>13. Darf eine 52-Jährige Frau mit 
+                    <span class="definition" onmouseover="showTooltip(event, 'ME/CFS ist ein Zustand, der extreme Müdigkeit verursacht und die Lebensqualität stark beeinträchtigen kann.')"
+                          onmouseout="hideTooltip()">ME/CFS</span> Sterbehilfe erhalten?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaMECFS" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaMECFS" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaMECFS" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageWOMAN3" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageWOMAN3" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageWOMAN3" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 14 -->
             <div class="form-field">
-                <label>14. Darf eine 14-Jährige mit Down-Syndrom Sterbehilfe beanspruchen?</label><br>
+                <label>14. Darf eine 14-Jährige mit 
+                    <span class="definition" onmouseover="showTooltip(event, 'Das Down-Syndrom ist eine genetische Störung, die eine Person auf besondere Weise veranlasst.')"
+                          onmouseout="hideTooltip()">Down-Syndrom</span> Sterbehilfe beanspruchen?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaDownSyndrome" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaDownSyndrome" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaDownSyndrome" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageGIRL" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageGIRL" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageGIRL" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
             <!-- Frage 15 -->
             <div class="form-field">
-                <label>15. Darf ein 27-Jähriger Mann, der querschnittsgelähmt im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?</label><br>
+                <label>15. Darf ein 27-Jähriger Mann, der 
+                    <span class="definition" onmouseover="showTooltip(event, 'Querschnittslähmung bedeutet, dass die Verbindung zwischen dem Gehirn und dem Körper beschädigt ist.')"
+                          onmouseout="hideTooltip()">querschnittsgelähmt</span> im Rollstuhl sitzt, Sterbehilfe in Anspruch nehmen?</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaParalysis" value="Ja" onchange="lockThis(this)">Ja</label><br>
-                    <label><input type="radio" name="euthanasiaParalysis" value="Nein" onchange="lockThis(this)">Nein</label><br>
-                    <label><input type="radio" name="euthanasiaParalysis" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
+                    <label><input type="radio" name="ageMAN" value="Ja" onchange="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="ageMAN" value="Nein" onchange="lockThis(this)">Nein</label><br>
+                    <label><input type="radio" name="ageMAN" value="Unsicher" onchange="lockThis(this)">Unsicher</label>
                 </div>
             </div>
 
-            <!-- Frage 16: Mehrfachauswahl -->
+            <!-- Frage 16 -->
             <div class="form-field">
-                <label>16. Wer darf darüber entscheiden? (Bitte mehrere Antworten auswählen)</label><br>
+                <label>16. Wer darf darüber entscheiden? (Mehrfachauswahl möglich)</label><br>
                 <div>
-                    <label><input type="checkbox" name="decisionMaker" value="Der Patient selbst">Der Patient selbst</label><br>
-                    <label><input type="checkbox" name="decisionMaker" value="Familie oder gesetzliche Vertreter">Familie oder gesetzliche Vertreter</label><br>
-                    <label><input type="checkbox" name="decisionMaker" value="Ärzte und Pfleger">Ärzte und Pfleger</label><br>
-                    <label><input type="checkbox" name="decisionMaker" value="Ethikkommissionen">Ethikkommissionen</label>
+                    <label><input type="checkbox" name="whoDecides" value="Der Patient selbst">Der Patient selbst</label><br>
+                    <label><input type="checkbox" name="whoDecides" value="Familie oder gesetzliche Vertreter">Familie oder gesetzliche Vertreter</label><br>
+                    <label><input type="checkbox" name="whoDecides" value="Ärzte und Pfleger">Ärzte und Pfleger</label><br>
+                    <label><input type="checkbox" name="whoDecides" value="Ethikkommissionen"> 
+                    <span class="definition" onmouseover="showTooltip(event, 'Ethikkommissionen sind Gruppen von Menschen, die über schwierige medizinische Entscheidungen nachdenken und beraten.')"
+                          onmouseout="hideTooltip()">Ethikkommissionen</span></label>
                 </div>
             </div>
 
-            <!-- Frage 17: Mehrfachauswahl -->
+            <!-- Frage 17 -->
             <div class="form-field">
-                <label>17. Wer soll es durchführen? (Bitte mehrere Antworten auswählen)</label><br>
+                <label>17. Wer soll es durchführen? (Mehrfachauswahl möglich)</label><br>
                 <div>
-                    <label><input type="checkbox" name="whoConducts" value="Ärzte">Ärzte</label><br>
-                    <label><input type="checkbox" name="whoConducts" value="Pfleger">Pfleger</label><br>
-                    <label><input type="checkbox" name="whoConducts" value="Der Patient selbst">Der Patient selbst</label><br>
-                    <label><input type="checkbox" name="whoConducts" value="Familie oder gesetzliche Vertreter">Familie oder gesetzliche Vertreter</label>
+                    <label><input type="checkbox" name="whoPerforms" value="Ärzte">Ärzte</label><br>
+                    <label><input type="checkbox" name="whoPerforms" value="Pfleger">Pfleger</label><br>
+                    <label><input type="checkbox" name="whoPerforms" value="Der Patient selbst">Der Patient selbst</label><br>
+                    <label><input type="checkbox" name="whoPerforms" value="Familie oder gesetzliche Vertreter">Familie oder gesetzliche Vertreter</label>
                 </div>
             </div>
 
             <!-- Frage 18 -->
             <div class="form-field">
-                <label>18. Findest du Sterbehilfe moralisch vertretbar?</label><br>
+                <label>18. Findest du Sterbehilfe <span class="definition" onmouseover="showTooltip(event, 'Moralisch vertretbar bedeutet, dass es richtig ist, wenn man nach den Prinzipien von gut und schlecht fragt.')"
+                    onmouseout="hideTooltip()">moralisch vertretbar</span>?</label><br>
                 <div>
                     <label><input type="radio" name="moralEuthanasia" value="Ja" onchange="lockThis(this)">Ja</label><br>
                     <label><input type="radio" name="moralEuthanasia" value="Nein" onchange="lockThis(this)">Nein</label><br>
