@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 
@@ -331,9 +330,27 @@
         document.getElementById('surveyForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
+            // Senden an EmailJS
             emailjs.sendForm('service_ler4x7s', 'template_srv4hjv', this)
                 .then(function () {
-                    alert('Deine Umfrage wurde erfolgreich abgeschickt!');
+                    alert('Deine Umfrage wurde erfolgreich an EmailJS gesendet!');
+
+                    // Senden an Google Sheets
+                    const formData = new FormData(this);
+                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzqJM0aI4Ewnvn1wWyq98Ur-m69-e7OD8FRX2FW3utDFiV5Jb2HqRB5X_jDPCtJDj5d/exec'; // Ersetzen Sie durch Ihre Google Apps Script-URL
+
+                    fetch(googleScriptURL, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Daten erfolgreich an Google Sheets gesendet:', data);
+                    })
+                    .catch(error => {
+                        console.error('Fehler beim Senden der Daten an Google Sheets:', error);
+                    });
+
                 }, function (error) {
                     alert('Es gab einen Fehler beim Abschicken der Umfrage: ' + JSON.stringify(error));
                 });
@@ -363,4 +380,5 @@
         }
     </script>
 </body>
+
 </html>
