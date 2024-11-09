@@ -53,16 +53,6 @@
         input[type="submit"]:hover {
             background-color: #87CEEB;
         }
-
-        .tooltip {
-            display: none;
-            position: absolute;
-            background-color: white;
-            color: black;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
     </style>
 </head>
 
@@ -136,14 +126,14 @@
                 </div>
             </div>
 
-            <!-- Frage 6 -->
+            <!-- Frage 6: Mehrfachauswahl -->
             <div class="form-field">
-                <label>6. Wer darf Sterbehilfe beanspruchen?</label><br>
+                <label>6. Wer darf Sterbehilfe beanspruchen? (Bitte mehrere Antworten auswählen)</label><br>
                 <div>
-                    <label><input type="radio" name="euthanasiaEligibility" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben" onchange="lockThis(this)">Alle Personen, die schwer leidende, unheilbare Krankheiten haben</label><br>
-                    <label><input type="radio" name="euthanasiaEligibility" value="Nur Erwachsene in bestimmten Situationen" onchange="lockThis(this)">Nur Erwachsene in bestimmten Situationen</label><br>
-                    <label><input type="radio" name="euthanasiaEligibility" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können" onchange="lockThis(this)">Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können</label><br>
-                    <label><input type="radio" name="euthanasiaEligibility" value="Niemand" onchange="lockThis(this)">Niemand</label>
+                    <label><input type="checkbox" name="euthanasiaEligibility" value="Alle Personen, die schwer leidende, unheilbare Krankheiten haben">Alle Personen, die schwer leidende, unheilbare Krankheiten haben</label><br>
+                    <label><input type="checkbox" name="euthanasiaEligibility" value="Nur Erwachsene in bestimmten Situationen">Nur Erwachsene in bestimmten Situationen</label><br>
+                    <label><input type="checkbox" name="euthanasiaEligibility" value="Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können">Nur Menschen, die bei vollem Bewusstsein eine Entscheidung treffen können</label><br>
+                    <label><input type="checkbox" name="euthanasiaEligibility" value="Niemand">Niemand</label>
                 </div>
             </div>
 
@@ -237,25 +227,25 @@
                 </div>
             </div>
 
-            <!-- Frage 16 -->
+            <!-- Frage 16: Mehrfachauswahl -->
             <div class="form-field">
-                <label>16. Wer darf darüber entscheiden?</label><br>
+                <label>16. Wer darf darüber entscheiden? (Bitte mehrere Antworten auswählen)</label><br>
                 <div>
-                    <label><input type="radio" name="decisionMaker" value="Der Patient selbst" onchange="lockThis(this)">Der Patient selbst</label><br>
-                    <label><input type="radio" name="decisionMaker" value="Familie oder gesetzliche Vertreter" onchange="lockThis(this)">Familie oder gesetzliche Vertreter</label><br>
-                    <label><input type="radio" name="decisionMaker" value="Ärzte und Pfleger" onchange="lockThis(this)">Ärzte und Pfleger</label><br>
-                    <label><input type="radio" name="decisionMaker" value="Ethikkommissionen" onchange="lockThis(this)">Ethikkommissionen</label>
+                    <label><input type="checkbox" name="decisionMaker" value="Der Patient selbst">Der Patient selbst</label><br>
+                    <label><input type="checkbox" name="decisionMaker" value="Familie oder gesetzliche Vertreter">Familie oder gesetzliche Vertreter</label><br>
+                    <label><input type="checkbox" name="decisionMaker" value="Ärzte und Pfleger">Ärzte und Pfleger</label><br>
+                    <label><input type="checkbox" name="decisionMaker" value="Ethikkommissionen">Ethikkommissionen</label>
                 </div>
             </div>
 
-            <!-- Frage 17 -->
+            <!-- Frage 17: Mehrfachauswahl -->
             <div class="form-field">
-                <label>17. Wer soll es durchführen?</label><br>
+                <label>17. Wer soll es durchführen? (Bitte mehrere Antworten auswählen)</label><br>
                 <div>
-                    <label><input type="radio" name="whoConducts" value="Ärzte" onchange="lockThis(this)">Ärzte</label><br>
-                    <label><input type="radio" name="whoConducts" value="Pfleger" onchange="lockThis(this)">Pfleger</label><br>
-                    <label><input type="radio" name="whoConducts" value="Der Patient selbst" onchange="lockThis(this)">Der Patient selbst</label><br>
-                    <label><input type="radio" name="whoConducts" value="Familie oder gesetzliche Vertreter" onchange="lockThis(this)">Familie oder gesetzliche Vertreter</label>
+                    <label><input type="checkbox" name="whoConducts" value="Ärzte">Ärzte</label><br>
+                    <label><input type="checkbox" name="whoConducts" value="Pfleger">Pfleger</label><br>
+                    <label><input type="checkbox" name="whoConducts" value="Der Patient selbst">Der Patient selbst</label><br>
+                    <label><input type="checkbox" name="whoConducts" value="Familie oder gesetzliche Vertreter">Familie oder gesetzliche Vertreter</label>
                 </div>
             </div>
 
@@ -306,7 +296,11 @@
 
             // Daten aus dem Formular sammeln und in JSON-Format umwandeln
             formData.forEach((value, key) => {
-                data[key] = value;
+                if (Array.isArray(data[key])) {
+                    data[key].push(value);
+                } else {
+                    data[key] = [value];
+                }
             });
 
             const record = {
@@ -317,7 +311,7 @@
                     "Wissen über Sterbehilfe": data['knowEuthanasia'],
                     "Sterbehilfe Unterstützung": data['supportEuthanasia'],
                     "Erfahrung mit Sterbehilfe": data['experienceEuthanasia'],
-                    "Sterbehilfe Anspruch": data['euthanasiaEligibility'],
+                    "Sterbehilfe Anspruch": (data['euthanasiaEligibility'] || []).join(', '),
                     "Sterbehilfe Oma": data['euthanasiaEligibility90'],
                     "Sterbehilfe Kind": data['euthanasiaEligibilityChild'],
                     "Sterbehilfe Familienvater": data['euthanasiaEligibilityFather'],
@@ -327,8 +321,8 @@
                     "Sterbehilfe MECFS": data['euthanasiaMECFS'],
                     "Sterbehilfe Down-Syndrom": data['euthanasiaDownSyndrome'],
                     "Sterbehilfe Querschnittsgelähmt": data['euthanasiaParalysis'],
-                    "Entscheider": data['decisionMaker'],
-                    "Durchführer": data['whoConducts'],
+                    "Entscheider": (data['decisionMaker'] || []).join(', '),
+                    "Durchführer": (data['whoConducts'] || []).join(', '),
                     "Moralische Vertretbarkeit": data['moralEuthanasia'],
                     "Wissen über andere Länder": data['knowOtherCountries'],
                     "Finale Unterstützung der Sterbehilfe": data['supportEuthanasiaFinal'],
@@ -380,6 +374,18 @@
                 document.getElementById("euthanasiaSupport").style.display = "none";
             }
         }
+
+        // Zeigt die Unterstützung der Sterbehilfe basierend auf der vorherigen Frage an
+        document.querySelectorAll('input[name="knowEuthanasia"]').forEach(input => {
+            input.addEventListener('change', function() {
+                const supportElement = document.getElementById("euthanasiaSupport");
+                if (this.value === "Ja") {
+                    supportElement.style.display = "block";
+                } else {
+                    supportElement.style.display = "none";
+                }
+            });
+        });
     </script>
 </body>
 
