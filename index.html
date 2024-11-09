@@ -303,31 +303,31 @@
                 }
             });
 
-            const record = {
-                fields: {
-                    "Alter": data['age'],
-                    "Geschlecht": data['gender'],
-                    "Religion": data['religion'],
-                    "Wissen über Sterbehilfe": data['knowEuthanasia'],
-                    "Sterbehilfe Unterstützung": data['supportEuthanasia'],
-                    "Erfahrung mit Sterbehilfe": data['experienceEuthanasia'],
-                    "Sterbehilfe Anspruch": (data['euthanasiaEligibility'] || []).join(', '),
-                    "Sterbehilfe Oma": data['euthanasiaEligibility90'],
-                    "Sterbehilfe Kind": data['euthanasiaEligibilityChild'],
-                    "Sterbehilfe Familienvater": data['euthanasiaEligibilityFather'],
-                    "Sterbehilfe Frau": data['euthanasiaEligibilityWoman'],
-                    "Sterbehilfe Soldat": data['euthanasiaPTBS'],
-                    "Sterbehilfe Bipolar": data['euthanasiaBipolar'],
-                    "Sterbehilfe MECFS": data['euthanasiaMECFS'],
-                    "Sterbehilfe Down-Syndrom": data['euthanasiaDownSyndrome'],
-                    "Sterbehilfe Querschnittsgelähmt": data['euthanasiaParalysis'],
-                    "Entscheider": (data['decisionMaker'] || []).join(', '),
-                    "Durchführer": (data['whoConducts'] || []).join(', '),
-                    "Moralische Vertretbarkeit": data['moralEuthanasia'],
-                    "Wissen über andere Länder": data['knowOtherCountries'],
-                    "Finale Unterstützung der Sterbehilfe": data['supportEuthanasiaFinal'],
-                }
-            };
+const record = {
+    fields: {
+        "Alter": data['age'][0], // Beispiel: falls ein Dropdown verwendet wird
+        "Geschlecht": data['gender'][0],
+        "Religion": data['religion'][0],
+        "Wissen über Sterbehilfe": data['knowEuthanasia'][0],
+        "Sterbehilfe Unterstützung": data['supportEuthanasia'][0],
+        "Erfahrung mit Sterbehilfe": data['experienceEuthanasia'][0],
+        "Sterbehilfe Anspruch": (data['euthanasiaEligibility'] || []).join(', '),
+        "Sterbehilfe Oma": data['euthanasiaEligibility90'][0],
+        "Sterbehilfe Kind": data['euthanasiaEligibilityChild'][0],
+        "Sterbehilfe Familienvater": data['euthanasiaEligibilityFather'][0],
+        "Sterbehilfe Frau": data['euthanasiaEligibilityWoman'][0],
+        "Sterbehilfe Soldat": data['euthanasiaPTBS'][0],
+        "Sterbehilfe Bipolar": data['euthanasiaBipolar'][0],
+        "Sterbehilfe MECFS": data['euthanasiaMECFS'][0],
+        "Sterbehilfe Down-Syndrom": data['euthanasiaDownSyndrome'][0],
+        "Sterbehilfe Querschnittsgelähmt": data['euthanasiaParalysis'][0],
+        "Entscheider": (data['decisionMaker'] || []).join(', '),
+        "Durchführer": (data['whoConducts'] || []).join(', '),
+        "Moralische Vertretbarkeit": data['moralEuthanasia'][0],
+        "Wissen über andere Länder": data['knowOtherCountries'][0],
+        "Finale Unterstützung der Sterbehilfe": data['supportEuthanasiaFinal'][0],
+    }
+};
 
             // Airtable API Setup
             const apiUrl = 'https://api.airtable.com/v0/appfvYCuahubaO54i/Umfrage'; // Ersetze mit deiner Base ID und Tabellenname
