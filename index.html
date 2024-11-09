@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,12 +52,6 @@
             background-color: #87CEEB;
         }
 
-        .definition {
-            cursor: pointer;
-            text-decoration: underline;
-            color: black;
-        }
-
         .tooltip {
             display: none;
             position: absolute;
@@ -70,12 +63,10 @@
         }
     </style>
 </head>
-
 <body>
     <div class="form-container">
         <h1>Sterbehilfe Umfrage</h1>
-        <form id="surveyForm">
-
+        <form id="surveyForm" netlify>
             <!-- Frage 1 -->
             <div class="form-field">
                 <label>1. Wie alt bist du?</label><br>
@@ -321,57 +312,13 @@
         <div class="tooltip" id="tooltip"></div>
     </div>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init("qsmH-iM0gbpRg_ncO"); // User ID
-        })();
-
-        document.getElementById('surveyForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            // Senden an EmailJS
-            emailjs.sendForm('service_ler4x7s', 'template_srv4hjv', this)
-                .then(function () {
-                    alert('Deine Umfrage wurde erfolgreich gesendet!');
-
-                    // Senden an Google Sheets
-                    const formData = new FormData(this);
-                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzqJM0aI4Ewnvn1wWyq98Ur-m69-e7OD8FRX2FW3utDFiV5Jb2HqRB5X_jDPCtJDj5d/exec'; // Ersetzen Sie durch Ihre Google Apps Script-URL
-
-                    fetch(googleScriptURL, {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Daten erfolgreich an Google Sheets gesendet:', data);
-                    })
-                    .catch(error => {
-                        console.error('Fehler beim Senden der Daten an Google Sheets:', error);
-                    });
-
-                }, function (error) {
-                    alert('Es gab einen Fehler beim Abschicken der Umfrage: ' + JSON.stringify(error));
-                });
-        });
-
-        // Funktion zum Sperren einer Frage
-        function lockThis(element) {
-            const questionName = element.name;
-            const options = document.getElementsByName(questionName);
-            for (let option of options) {
-                option.disabled = true; // Alle Optionen der Frage deaktivieren
-            }
-        }
-
-        // Tooltip-Funktionen
+    <script>
         function showTooltip(event, text) {
             const tooltip = document.getElementById('tooltip');
+            tooltip.innerHTML = text;
             tooltip.style.display = 'block';
-            tooltip.textContent = text;
-            tooltip.style.left = event.pageX + 5 + 'px';
-            tooltip.style.top = event.pageY + 5 + 'px';
+            tooltip.style.left = event.pageX + 'px';
+            tooltip.style.top = event.pageY + 'px';
         }
 
         function hideTooltip() {
@@ -380,5 +327,4 @@
         }
     </script>
 </body>
-
 </html>
