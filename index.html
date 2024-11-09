@@ -72,7 +72,7 @@
 <body>
     <div class="form-container">
         <h1>Sterbehilfe Umfrage</h1>
-        <form id="surveyForm" action="https://formcarry.com/s/T5T97NrxpUZ" method="POST">
+        <form id="surveyForm" netlify>
 
             <!-- Frage 1 -->
             <div class="form-field">
@@ -330,66 +330,7 @@
     </div>
 
     <script>
-        // Funktion zur Anzeige von Frage 4a basierend auf der Antwort auf Frage 4
-        function showFollowUp(selectedRadio) {
-            const followUpElement = document.getElementById('euthanasiaSupport');
-            followUpElement.style.display = 'block'; // Frage 4a anzeigen
-        }
-
-        // Funktion zur Sperrung weiterer Auswahl nach einer Auswahl
-        function lockThis(selectedRadio) {
-            const radios = document.querySelectorAll(`input[name="${selectedRadio.name}"]`);
-            radios.forEach(radio => {
-                radio.disabled = true; // Alle Radios deaktivieren
-            });
-            selectedRadio.disabled = false; // Den ausgewählten Radio weiterhin aktiv lassen
-        }
-
-        document.getElementById('surveyForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const formData = new FormData(event.target);
-            let data = {};
-
-            // Daten aus dem Formular sammeln
-            formData.forEach((value, key) => {
-                if (key in data) {
-                    // Wenn der Schlüssel bereits existiert, in ein Array umwandeln
-                    if (Array.isArray(data[key])) {
-                        data[key].push(value);
-                    } else {
-                        data[key] = [data[key], value]; // in ein Array umwandeln
-                    }
-                } else {
-                    data[key] = [value]; // Neuen Eintrag hinzufügen
-                }
-            });
-
-            // Überprüfen, ob alle erforderlichen Felder vorhanden sind
-            if (!data['age'] || !data['gender'] || !data['religion']) {
-                alert('Bitte füll alle erforderlichen Felder aus.');
-                return; // Abbrechen, wenn nicht alle erforderlichen Felder ausgefüllt sind
-            }
-
-            // Daten an Formcarry senden
-            fetch(event.target.action, {
-                method: 'POST',
-                body: new URLSearchParams(formData), // Entsprechende Transformation für Formcarry
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Die Umfrage wurde erfolgreich abgeschickt.');
-                document.getElementById('surveyForm').reset(); // Formular zurücksetzen
-            })
-            .catch(error => {
-                console.error('Fehler beim Senden der Daten:', error);
-                alert('Es gab ein Problem beim Absenden der Umfrage: ' + error.message);
-            });
-        });
-
+        // Tooltip-Funktionen
         function showTooltip(event, text) {
             const tooltip = document.getElementById('tooltip');
             tooltip.innerHTML = text;
