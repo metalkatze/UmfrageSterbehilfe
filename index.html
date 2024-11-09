@@ -72,7 +72,7 @@
 <body>
     <div class="form-container">
         <h1>Sterbehilfe Umfrage</h1>
-        <form id="surveyForm">
+        <form id="surveyForm" action="https://formcarry.com/s/T5T97NrxpUZ" method="POST">
 
             <!-- Frage 1 -->
             <div class="form-field">
@@ -371,42 +371,13 @@
                 return; // Abbrechen, wenn nicht alle erforderlichen Felder ausgefüllt sind
             }
 
-            // Record für Airtable
-        const record = {
-    fields: {
-        "Alter": data['age'][0],
-        "Geschlecht": data['gender'][0],
-        "Religion": data['religion'][0],
-        "Wissen über Sterbehilfe": data['knowEuthanasia'][0],
-        "Sterbehilfe Anspruch": data['euthanasiaClaim'][0],
-        "Sterbehilfe Oma": data['euthanasiaGrandmother'][0],
-        "Sterbehilfe Kind": data['euthanasiaChild'][0],
-        "Sterbehilfe Familienvater": data['euthanasiaFather'][0],
-        "Sterbehilfe Frau": data['euthanasiaWoman'][0],
-        "Sterbehilfe Soldat": data['euthanasiaSoldier'][0],
-        "Sterbehilfe Bipolar": data['euthanasiaBipolar'][0],
-        "Sterbehilfe MECFS": data['euthanasiaMECFS'][0],
-        "Sterbehilfe Down-Syndrom": data['euthanasiaDownSyndrome'][0],
-        "Sterbehilfe Querschnittsgelähmter": data['euthanasiaParalyzed'][0],
-        "Entscheider": data['whoDecides'][0],
-        "Durchführer": data['whoPerforms'][0],
-        "Moralische Vertretbarkeit": data['moralEuthanasia'][0],
-        "Wissen über andere Länder": data['knowOtherCountries'][0],
-        "Finale Unterstützung": data['supportEuthanasiaFinal'][0],
-    }
-};
-
-            // API Setup
-            const apiUrl = 'https://airtable.com/appfvYCuahubaO54i/tblswVJutFAtmYrGy/viwwvffpf2qkPDFRV?blocks=hide'; // Ersetzen mit Ihrer Base-ID
-            const apiKey = 'patxcHE5Uk28ox3xf.faae1584b3941a6a121dae59f41c6daf4868dedee4bbe704bd2f82efc05d6dc4'; // Ersetzen mit Ihrem API-Key
-
-            fetch(apiUrl, {
+            // Daten an Formcarry senden
+            fetch(event.target.action, {
                 method: 'POST',
+                body: new URLSearchParams(formData), // Entsprechende Transformation für Formcarry
                 headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(record)
+                    'Accept': 'application/json'
+                }
             })
             .then(response => response.json())
             .then(data => {
