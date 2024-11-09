@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +69,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="form-container">
         <h1>Sterbehilfe Umfrage</h1>
@@ -118,7 +116,7 @@
                     <span class="definition" onmouseover="showTooltip(event, 'Sterbehilfe ist, wenn jemand einer anderen Person hilft, zu sterben, weil sie sehr krank ist und leidet.')" 
                           onmouseout="hideTooltip()">Sterbehilfe</span> ist?</label><br>
                 <div>
-                    <label><input type="radio" name="knowEuthanasia" value="Ja" onclick="lockThis(this)">Ja</label><br>
+                    <label><input type="radio" name="knowEuthanasia" value="Ja" onclick="showFollowUp(this); lockThis(this)">Ja</label><br>
                     <label><input type="radio" name="knowEuthanasia" value="Nein" onclick="lockThis(this)">Nein</label>
                 </div>
             </div>
@@ -332,6 +330,12 @@
     </div>
 
     <script>
+        // Funktion zur Anzeige von Frage 4a basierend auf der Antwort auf Frage 4
+        function showFollowUp(selectedRadio) {
+            const followUpElement = document.getElementById('euthanasiaSupport');
+            followUpElement.style.display = 'block'; // Frage 4a anzeigen
+        }
+
         // Funktion zur Sperrung weiterer Auswahl nach einer Auswahl
         function lockThis(selectedRadio) {
             const radios = document.querySelectorAll(`input[name="${selectedRadio.name}"]`);
@@ -417,5 +421,4 @@
         }
     </script>
 </body>
-
 </html>
